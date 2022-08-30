@@ -1,0 +1,10 @@
+[
+  {
+    "id": "flutter",
+    "name": "Flutter",
+    "parentTagIds": ["frameworks", "python might be a subset of object oriented and functional"],
+    "textColor": [84, 197, 248, 1],
+    "backgroundColor": [0, 59, 108, 1],
+    "logo": "assets/images/icons/my_icon.svg"
+  }
+]

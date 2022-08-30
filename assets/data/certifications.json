@@ -1,0 +1,15 @@
+[
+  {
+    "institution": "TU Musterhausen",
+    "link": "tu.musterhausen.com",
+    "textColor": [84, 197, 248, 1],
+    "backgroundColor": [0, 59, 108, 1],
+    "logo": "assets/images/logos/my_logo.jpg",
+    "name": "Scrum Master",
+    "description": "Short description of what the certification is about.",
+    "confirmationLink": "tu.musterhausen.com/my-id",
+    "issueDate": "2022-08-20T19:02:21.891623",
+    "expirationDate": "none",
+    "tags": ["flutter"]
+  }
+]

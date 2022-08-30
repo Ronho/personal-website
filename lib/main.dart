@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'package:personal_website/i18n/messages.dart';
+import 'package:personal_website/screens/landing.dart';
 import 'package:personal_website/screens/projects.dart';
 import 'package:personal_website/theme/themes.dart';
 import 'package:personal_website/screens/not_found.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(
           name: '/',
-          page: () => MyHomePage(),
+          page: () => const LandingScreen(),
           transition: Transition.noTransition,
         ),
         GetPage(
@@ -49,84 +50,5 @@ class MyApp extends StatelessWidget {
         ),
       ],
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final ThemeController themeController = ThemeController.to;
-  final LocaleController localeController = LocaleController.to;
-
-  MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(() {
-      return Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text("Sample App Bar"),
-          actions: [
-            ElevatedButton(
-              child: const Text('2nd Page'),
-              onPressed: () {
-                Get.toNamed('/projects');
-              },
-            ),
-            // Buttons to change locale and language
-            DropdownButton<String>(
-              value: localeController.localeString,
-              onChanged: (value) async {
-                if (value != null) {
-                  await localeController.saveLocale(value);
-                  Get.updateLocale(localeController.locale);
-                }
-              },
-              items: [
-                DropdownMenuItem(
-                  value: 'en_US',
-                  child: Text('en_US'.tr),
-                ),
-                DropdownMenuItem(
-                  value: 'de_DE',
-                  child: Text('de_DE'.tr),
-                ),
-                DropdownMenuItem(
-                  value: 'system',
-                  child: Text('system'.tr),
-                ),
-              ],
-            ),
-
-            // Buttons to change theme
-            if (ThemeController.isLight(themeController.themeModeString))
-              IconButton(
-                onPressed: () async {
-                  await themeController.saveThemeMode('dark');
-                  Get.changeThemeMode(themeController.themeMode);
-                },
-                icon: const Icon(Icons.dark_mode),
-              )
-            else
-              IconButton(
-                onPressed: () async {
-                  await themeController.saveThemeMode('light');
-                  Get.changeThemeMode(themeController.themeMode);
-                },
-                icon: const Icon(Icons.brightness_high),
-              )
-          ],
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'name'.tr,
-              ),
-            ],
-          ),
-        ),
-      );
-    });
   }
 }

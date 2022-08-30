@@ -1,0 +1,13 @@
+[
+  {
+    "tagIds": ["flutter"],
+    "authors": ["Arsene Lupin"],
+    "isPublished": true,
+    "thumbnail": "assets/images/thumbnails/test.jpg",
+    "date": "2022-08-20T19:02:21.891623",
+    "lastUpdated": "2022-08-20T19:02:21.891623",
+    "title": "Title of the project.",
+    "description": "Short description of what has been done within the project.",
+    "body": "Content of the project in markdown including what the problems and goals were, how the problems were approached, as well as what and why specific technologies were used."
+  }
+]

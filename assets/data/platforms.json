@@ -1,0 +1,14 @@
+[
+  {
+    "id": "youtube",
+    "name": "YouTube",
+    "textColor": [255, 255, 255, 1],
+    "backgroundColor": [255, 0, 0, 1],
+    "logo": "assets/images/icons/my_icon.svg",
+    "link": "youtube.com",
+    "subLinks": {
+      "channel": "/channel/:id",
+      "video": "/watch?v=:id"
+    }
+  }
+]

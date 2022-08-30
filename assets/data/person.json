@@ -1,0 +1,22 @@
+{
+  "firstName": "Arsene",
+  "lastName": "Lupin",
+  "email": "arsene@lupin.com",
+  "motto": "Short text about what I like to do and how I want to change the world.",
+  "links": [
+    {
+      "platformId": "youtube",
+      "subLink": "channel",
+      "kwargs": {
+        "id": "arsene"
+      }
+    }
+  ],
+  "address": {
+    "street": "Moin Street",
+    "houseNumber": "12c",
+    "zipCode": "12345",
+    "city": "Mönchenraubach",
+    "country": "Gerless nicht Germany"
+  }
+}

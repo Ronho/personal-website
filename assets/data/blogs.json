@@ -1,0 +1,23 @@
+[
+  {
+    "isPublished": true,
+    "thumbnail": "assets/images/thumbnails/test.jpg",
+    "authors": ["Arsene Lupin"],
+    "date": "2022-08-20T19:02:21.891623",
+    "lastUpdated": "2022-08-20T19:02:21.891623",
+    "title": "Title of the blog post.",
+    "body": "Content of the blog post in markdown."
+  },
+  {
+    "isPublished": true,
+    "thumbnail": "assets/images/thumbnails/test.jpg",
+    "authors": ["Arsene Lupin"],
+    "date": "2022-08-20T19:02:21.891623",
+    "lastUpdated": "2022-08-20T19:02:21.891623",
+    "title": {
+      "en-US": "Title of the blog post.",
+      "de-DE": "Title of the blog post."
+    },
+    "body": "Content of the blog post in markdown."
+  }
+]
