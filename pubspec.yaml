@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   get_storage: ^2.0.3
+  flutter_svg: ^1.1.4
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +61,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/flags/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

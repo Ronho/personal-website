@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/controller/locale.dart';
@@ -59,6 +60,13 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
         actions: [
+          IconButton(
+            onPressed: () async {}, //TODO: display search bar
+            icon: const Icon(Icons.search),
+          ),
+          SvgPicture.asset('assets/images/flags/flag_germany.svg', width: 50,),
+          SvgPicture.asset('assets/images/flags/flag_us.svg', width: 50,),
+
           // Buttons to change locale and language
           DropdownButton<String>(
             value: localeController.localeString,
