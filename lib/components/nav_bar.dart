@@ -14,28 +14,51 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   final ThemeController themeController = ThemeController.to;
   final LocaleController localeController = LocaleController.to;
 
+  @override
   Widget build(BuildContext context) {
     return Obx(() {
       return AppBar(
         automaticallyImplyLeading: false,
-        leading: const IconButton(
-          icon: Icon(Icons.account_circle),
-          onPressed: null,
+        leading: IconButton(
+          icon: const Icon(Icons.account_circle),
+          onPressed: () {
+            Get.toNamed('/');
+          },
         ),
         centerTitle: true,
         title: Row(
           mainAxisSize: MainAxisSize.min,
-          children: const [
-            NavButton(),
+          children: [
+            NavButton(
+              onClick: () {
+                Get.toNamed('/experience');
+              },
+              name: 'Experience',
+              icon: Icons.work,
+            ),
+            const SizedBox(
+              width: 48,
+            ),
+            NavButton(
+              onClick: () {
+                Get.toNamed('/projects');
+              },
+              name: 'Projects',
+              icon: Icons.view_kanban,
+            ),
+            const SizedBox(
+              width: 48,
+            ),
+            NavButton(
+              onClick: () {
+                Get.toNamed('/blog');
+              },
+              name: 'Blog',
+              icon: Icons.feed,
+            ),
           ],
         ),
         actions: [
-          ElevatedButton(
-            child: const Text('2nd Page'),
-            onPressed: () {
-              Get.toNamed('/projects');
-            },
-          ),
           // Buttons to change locale and language
           DropdownButton<String>(
             value: localeController.localeString,

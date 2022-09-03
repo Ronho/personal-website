@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'package:personal_website/i18n/messages.dart';
+import 'package:personal_website/screens/blog.dart';
+import 'package:personal_website/screens/experience.dart';
 import 'package:personal_website/screens/landing.dart';
 import 'package:personal_website/screens/projects.dart';
 import 'package:personal_website/theme/themes.dart';
@@ -46,6 +48,16 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/projects',
           page: () => const ProjectScreen(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: '/experience',
+          page: () => const ExperienceScreen(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: '/blog',
+          page: () => const BlogScreen(),
           transition: Transition.noTransition,
         ),
       ],
