@@ -44,6 +44,7 @@ class _NavButtonState extends State<NavButton>
     return GestureDetector(
       onTap: widget.onClick,
       child: MouseRegion(
+        cursor: SystemMouseCursors.click,
         onEnter: (event) {
           setState(() {
             controller.forward();

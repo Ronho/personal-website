@@ -6,12 +6,20 @@ class Messages extends Translations {
         'en_US': {
           'name': 'English Test',
           'en_US': 'English',
-          'de_DE': 'Deutsch'
+          'de_DE': 'Deutsch',
+          'system': 'System',
+          'blog': 'Blog',
+          'projects': 'Projects',
+          'experience': 'Experience'
         },
         'de_DE': {
           'name': 'Deutsch Test',
           'en_US': 'English',
-          'de_DE': 'Deutsch'
+          'de_DE': 'Deutsch',
+          'system': 'System',
+          'blog': 'Blog',
+          'projects': 'Projekte',
+          'experience': 'Erfahrung'
         }
       };
 }

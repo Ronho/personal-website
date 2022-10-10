@@ -34,7 +34,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               onClick: () {
                 Get.toNamed('/experience');
               },
-              name: 'Experience',
+              name: 'experience'.tr,
               icon: Icons.work,
             ),
             const SizedBox(
@@ -44,7 +44,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               onClick: () {
                 Get.toNamed('/projects');
               },
-              name: 'Projects',
+              name: 'projects'.tr,
               icon: Icons.view_kanban,
             ),
             const SizedBox(
@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               onClick: () {
                 Get.toNamed('/blog');
               },
-              name: 'Blog',
+              name: 'blog'.tr,
               icon: Icons.feed,
             ),
           ],
@@ -64,8 +64,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             onPressed: () async {}, //TODO: display search bar
             icon: const Icon(Icons.search),
           ),
-          SvgPicture.asset('assets/images/flags/flag_germany.svg', width: 50,),
-          SvgPicture.asset('assets/images/flags/flag_us.svg', width: 50,),
 
           // Buttons to change locale and language
           DropdownButton<String>(
@@ -79,15 +77,48 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
             items: [
               DropdownMenuItem(
                 value: 'en_US',
-                child: Text('en_US'.tr),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                      child: SvgPicture.asset(
+                        'assets/images/flags/flag_us.svg',
+                        width: 24,
+                      ),
+                    ),
+                    Text('en_US'.tr),
+                  ],
+                ),
               ),
               DropdownMenuItem(
                 value: 'de_DE',
-                child: Text('de_DE'.tr),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                      child: SvgPicture.asset(
+                        'assets/images/flags/flag_germany.svg',
+                        width: 24,
+                      ),
+                    ),
+                    Text('de_DE'.tr),
+                  ],
+                ),
               ),
               DropdownMenuItem(
                 value: 'system',
-                child: Text('system'.tr),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                      child: SvgPicture.asset(
+                        'assets/images/flags/flag_system.svg',
+                        width: 24,
+                      ),
+                    ),
+                    Text('system'.tr),
+                  ],
+                ),
               ),
             ],
           ),
