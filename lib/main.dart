@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/blog',
-          page: () => const BlogScreen(),
+          page: () => BlogScreen(),
           transition: Transition.noTransition,
         ),
       ],
