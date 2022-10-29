@@ -12,7 +12,18 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
 
 class BlogCard extends StatefulWidget {
   final int numLines;
-  const BlogCard({Key? key, required this.numLines}) : super(key: key);
+  final String coverPath;
+  final String title;
+  final String summary;
+  final DateTime date;
+  const BlogCard(
+      {Key? key,
+      required this.numLines,
+      required this.coverPath,
+      required this.title,
+      required this.summary,
+      required this.date})
+      : super(key: key);
 
   @override
   State<BlogCard> createState() => _BlogCardState();
@@ -21,7 +32,7 @@ class BlogCard extends StatefulWidget {
 class _BlogCardState extends State<BlogCard> {
   @override
   Widget build(BuildContext context) {
-    final String date = DateFormat.yMMMd().format(DateTime.now());
+    final String date = DateFormat.yMMMd().format(widget.date);
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -34,8 +45,8 @@ class _BlogCardState extends State<BlogCard> {
               width: constraints.maxWidth,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(25.0),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/thumbnails/thumbnail.jpg'),
+                image: DecorationImage(
+                  image: AssetImage(widget.coverPath),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -47,7 +58,7 @@ class _BlogCardState extends State<BlogCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "$date • My Headline Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
+                  "$date • ${widget.title}",
                   maxLines: 1,
                   style: const TextStyle(
                     overflow: TextOverflow.ellipsis,
@@ -59,7 +70,7 @@ class _BlogCardState extends State<BlogCard> {
                   height: 8,
                 ),
                 Text(
-                  "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                  widget.summary,
                   maxLines: widget.numLines,
                   softWrap: true,
                   style: const TextStyle(

@@ -39,7 +39,7 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
-    final double padding = max((screen.width-1260)/2, 15);
+    final double padding = max((screen.width - 1260) / 2, 15);
 
     return Scaffold(
       appBar: NavBar(),
@@ -55,7 +55,15 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
             mainAxisSpacing: 15,
             crossAxisCount: getCrossAxisCount(screen.width),
             children: List.generate(10, (index) {
-              return BlogCard(numLines: getNumLines(screen.width));
+              return BlogCard(
+                numLines: getNumLines(screen.width),
+                coverPath: "assets/images/thumbnails/thumbnail.jpg",
+                date: DateTime.now(),
+                summary:
+                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+                title:
+                    "My Headline Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
+              );
             }),
           ),
         ),
