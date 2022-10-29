@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'dart:html' as html;
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/item_card.dart';
@@ -65,7 +65,6 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
                 title:
                     "My Headline Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
                 onClick: () {
-                  html.window.open('https://www.github.com/', "_blank");
                 },
               );
             }),

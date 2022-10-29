@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/projects',
-          page: () => const ProjectScreen(),
+          page: () => ProjectScreen(),
           transition: Transition.noTransition,
         ),
         GetPage(
