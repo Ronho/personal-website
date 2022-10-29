@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,61 +11,51 @@ class ResponsiveController extends GetxController {}
 class BlogScreen extends GetResponsiveView<ResponsiveController> {
   BlogScreen({Key? key}) : super(key: key);
 
-  int getCrossAxisCount(ScreenType screenType) {
-    switch (screenType) {
-      case ScreenType.Watch:
-        return 1;
-      case ScreenType.Phone:
-        return 1;
-      case ScreenType.Tablet:
-        return 2;
-      default:
-        return 2;
-    }
-  }
-  int xgetCrossAxisCount(double screenWidth) {
-    if (screenWidth < 500) {
+  int getCrossAxisCount(double screenWidth) {
+    if (screenWidth < 455) {
       return 1;
-    } else {
+    } else if (screenWidth < 680) {
       return 2;
+    } else {
+      return 3;
     }
   }
 
   int getNumLines(double screenWidth) {
-    if (screenWidth < 275) {
+    if (screenWidth < 285) {
       return 1;
-    } else if (screenWidth < 375) {
+    } else if (screenWidth < 455) {
       return 2;
-    } else if (screenWidth < 500) {
-      return 5;
-    } else if (screenWidth < 520) {
+    } else if (screenWidth < 575) {
       return 1;
-    } else if (screenWidth < 600) {
+    } else if (screenWidth < 680) {
       return 2;
-    } else if (screenWidth < 1000) {
-      return 3;
+    } else if (screenWidth < 855) {
+      return 1;
     } else {
-      return 8;
+      return 2;
     }
   }
 
   @override
   Widget builder() {
+    final double padding = max((screen.width-1260)/2, 15);
+
     return Scaffold(
       appBar: NavBar(),
       body: Center(
         child: Container(
-          constraints: const BoxConstraints(minWidth: 100, maxWidth: 1000),
+          alignment: Alignment.topCenter,
           child: GridView.count(
+            padding: EdgeInsets.only(top: 15, left: padding, right: padding),
+            childAspectRatio: 1.2,
             shrinkWrap: true,
             primary: false,
-            crossAxisSpacing: 0,
-            mainAxisSpacing: 0,
-            crossAxisCount: xgetCrossAxisCount(screen.width),
+            crossAxisSpacing: 30,
+            mainAxisSpacing: 15,
+            crossAxisCount: getCrossAxisCount(screen.width),
             children: List.generate(10, (index) {
-              return BlogCard(
-                numLines: getNumLines(screen.width),
-              );
+              return BlogCard(numLines: getNumLines(screen.width));
             }),
           ),
         ),
