@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:html' as html;
 
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
