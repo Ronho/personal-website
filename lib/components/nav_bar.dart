@@ -57,14 +57,16 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               name: 'blog'.tr,
               icon: Icons.feed,
             ),
+            const SizedBox(
+              width: 48,
+            ),
+            IconButton(
+              onPressed: () async {}, //TODO: display search bar
+              icon: const Icon(Icons.search),
+            ),
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () async {}, //TODO: display search bar
-            icon: const Icon(Icons.search),
-          ),
-
           // Buttons to change locale and language
           DropdownButton<String>(
             value: localeController.localeString,
