@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 
 class NavButton extends StatefulWidget {
   final String name;
-  final void Function() onClick;
   final IconData icon;
+  final bool isActive;
+  final void Function() onClick;
 
   const NavButton({
     Key? key,
     required this.name,
     required this.onClick,
     required this.icon,
+    required this.isActive,
   }) : super(key: key);
 
   @override
@@ -26,13 +28,14 @@ class _NavButtonState extends State<NavButton>
   @override
   void initState() {
     super.initState();
-    controller =
-        AnimationController(duration: const Duration(milliseconds: 250), vsync: this);
-    animation =
-        ColorTween(begin: Colors.grey[500], end: Colors.grey[100]).animate(controller)
-          ..addListener(() {
-            setState(() {});
-          });
+    controller = AnimationController(
+        duration: const Duration(milliseconds: 250), vsync: this);
+
+    animation = ColorTween(begin: Colors.grey[500], end: Colors.grey[100])
+        .animate(controller)
+      ..addListener(() {
+        setState(() {});
+      });
   }
 
   void animateColor() {
@@ -59,13 +62,13 @@ class _NavButtonState extends State<NavButton>
           children: [
             Icon(
               widget.icon,
-              color: animation.value,
+              color: widget.isActive ? Colors.grey[100] : animation.value,
             ),
             const SizedBox(width: 8),
             Text(
               widget.name,
               style: TextStyle(
-                color: animation.value,
+                color: widget.isActive ? Colors.grey[100] : animation.value,
                 fontWeight: FontWeight.bold,
               ),
             ),

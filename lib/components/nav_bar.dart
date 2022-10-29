@@ -15,6 +15,10 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   final ThemeController themeController = ThemeController.to;
   final LocaleController localeController = LocaleController.to;
 
+  bool isActive(String currentRoute, String checkRoute) {
+    return currentRoute == checkRoute;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(() {
@@ -36,6 +40,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               },
               name: 'experience'.tr,
               icon: Icons.work,
+              isActive: isActive(Get.currentRoute, '/experience'),
             ),
             const SizedBox(
               width: 48,
@@ -46,6 +51,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               },
               name: 'projects'.tr,
               icon: Icons.view_kanban,
+              isActive: isActive(Get.currentRoute, '/projects'),
             ),
             const SizedBox(
               width: 48,
@@ -56,6 +62,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
               },
               name: 'blog'.tr,
               icon: Icons.feed,
+              isActive: isActive(Get.currentRoute, '/blog'),
             ),
             const SizedBox(
               width: 48,
