@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
-import 'package:personal_website/components/blog_card.dart';
+import 'package:personal_website/components/item_card.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -56,7 +56,7 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
             mainAxisSpacing: 15,
             crossAxisCount: getCrossAxisCount(screen.width),
             children: List.generate(10, (index) {
-              return BlogCard(
+              return ItemCard(
                 numLines: getNumLines(screen.width),
                 coverPath: "assets/images/thumbnails/thumbnail.jpg",
                 date: DateTime.now(),

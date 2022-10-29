@@ -10,14 +10,14 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
       };
 }
 
-class BlogCard extends StatefulWidget {
+class ItemCard extends StatefulWidget {
   final int numLines;
   final String coverPath;
   final String title;
   final String summary;
   final DateTime date;
   final void Function() onClick;
-  const BlogCard(
+  const ItemCard(
       {Key? key,
       required this.numLines,
       required this.coverPath,
@@ -28,10 +28,10 @@ class BlogCard extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<BlogCard> createState() => _BlogCardState();
+  State<ItemCard> createState() => _ItemCardState();
 }
 
-class _BlogCardState extends State<BlogCard> {
+class _ItemCardState extends State<ItemCard> {
   @override
   Widget build(BuildContext context) {
     final String date = DateFormat.yMMMd().format(widget.date);
