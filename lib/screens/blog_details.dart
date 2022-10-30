@@ -39,14 +39,14 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    SelectableText(
                       blog.title,
                       style: const TextStyle(
                         fontSize: 48,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    Text(
+                    SelectableText(
                       '${DateFormat.yMMMd().format(blog.date)} • ${blog.authorsAsString}',
                       style: const TextStyle(fontSize: 24),
                     ),
