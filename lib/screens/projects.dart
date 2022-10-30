@@ -6,11 +6,15 @@ import 'package:flutter/material.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/item_card.dart';
+import 'package:personal_website/controller/projects.dart';
+import 'package:personal_website/data/project.dart';
 
 class ResponsiveController extends GetxController {}
 
 class ProjectScreen extends GetResponsiveView<ResponsiveController> {
   ProjectScreen({Key? key}) : super(key: key);
+
+  final ProjectsController c = Get.put(ProjectsController());
 
   int getCrossAxisCount(double screenWidth) {
     if (screenWidth < 455) {
@@ -41,37 +45,41 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
   @override
   Widget builder() {
     final double padding = max((screen.width - 1260) / 2, 15);
+    c.getProjects();
 
     return Scaffold(
       appBar: NavBar(),
-      body: Center(
-        child: Container(
-          alignment: Alignment.topCenter,
-          child: GridView.count(
-            padding: EdgeInsets.only(top: 15, left: padding, right: padding),
-            childAspectRatio: 1.2,
-            shrinkWrap: true,
-            primary: false,
-            crossAxisSpacing: 30,
-            mainAxisSpacing: 15,
-            crossAxisCount: getCrossAxisCount(screen.width),
-            children: List.generate(10, (index) {
-              return ItemCard(
-                numLines: getNumLines(screen.width),
-                coverPath: "assets/images/thumbnails/thumbnail.jpg",
-                date: DateTime.now(),
-                summary:
-                "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-                title:
-                "My Headline Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
-                onClick: () {
-                  html.window.open('https://www.github.com/', "_blank");
-                },
-              );
-            }),
+      body: Obx(() {
+        return Center(
+          child: Container(
+            alignment: Alignment.topCenter,
+            child: GridView(
+              padding: EdgeInsets.only(top: 15, left: padding, right: padding),
+              shrinkWrap: true,
+              primary: false,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: getCrossAxisCount(screen.width),
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 15,
+                childAspectRatio: 1.2,
+              ),
+              children: [
+                for (Project project in c.projects)
+                  ItemCard(
+                    numLines: getNumLines(screen.width),
+                    thumbnailPath: project.thumbnailPath,
+                    date: project.date,
+                    summary: project.summary,
+                    title: project.title,
+                    onClick: () {
+                      html.window.open('https://www.github.com/', "_blank");
+                    },
+                  ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }

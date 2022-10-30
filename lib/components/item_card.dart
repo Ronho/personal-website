@@ -12,7 +12,7 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
 
 class ItemCard extends StatefulWidget {
   final int numLines;
-  final String coverPath;
+  final String thumbnailPath;
   final String title;
   final String summary;
   final DateTime date;
@@ -20,7 +20,7 @@ class ItemCard extends StatefulWidget {
   const ItemCard(
       {Key? key,
       required this.numLines,
-      required this.coverPath,
+      required this.thumbnailPath,
       required this.title,
       required this.summary,
       required this.date,
@@ -52,7 +52,7 @@ class _ItemCardState extends State<ItemCard> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(25.0),
                     image: DecorationImage(
-                      image: AssetImage(widget.coverPath),
+                      image: AssetImage(widget.thumbnailPath),
                       fit: BoxFit.cover,
                     ),
                   ),
