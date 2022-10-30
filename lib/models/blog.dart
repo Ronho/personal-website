@@ -34,4 +34,17 @@ class Blog {
       body: json['body'].toString(),
     );
   }
+
+  String get authorsAsString {
+    String text = '';
+    for (String entry in authors) {
+      if (text == '') {
+        text += entry;
+      } else {
+        text += ', $entry';
+      }
+    }
+
+    return text;
+  }
 }

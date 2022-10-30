@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
@@ -27,14 +28,43 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
       body: Center(
         child: Container(
           alignment: Alignment.topCenter,
-          padding: EdgeInsets.only(top: 15, left: padding, right: padding),
           child: Obx(() {
             final Blog? blog = c.getBlogById(id);
-            return Markdown(
-              selectable: true,
-              extensionSet: md.ExtensionSet.gitHubWeb,
-              data: blog != null ? blog.body : '',
-            );
+            if (blog == null) {
+              return const CircularProgressIndicator();
+            } else {
+              return SingleChildScrollView(
+                padding:
+                    EdgeInsets.only(top: 15, left: padding, right: padding),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      blog.title,
+                      style: const TextStyle(
+                        fontSize: 48,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      '${DateFormat.yMMMd().format(blog.date)} • ${blog.authorsAsString}',
+                      style: const TextStyle(fontSize: 24),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Markdown(
+                      padding: const EdgeInsets.all(0),
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      selectable: true,
+                      extensionSet: md.ExtensionSet.gitHubWeb,
+                      data: blog.body,
+                    ),
+                  ],
+                ),
+              );
+            }
           }),
         ),
       ),
