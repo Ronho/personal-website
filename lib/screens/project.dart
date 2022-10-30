@@ -1,6 +1,6 @@
 import 'dart:math';
-import 'dart:html' as html;
 
+import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -71,7 +71,8 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
                     summary: project.summary,
                     title: project.title,
                     onClick: () {
-                      html.window.open('https://www.github.com/', "_blank");
+                      final Uri url = Uri.parse('https://www.github.com/');
+                      launchUrl(url);
                     },
                   ),
               ],
