@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/controller/projects.dart';
-import 'package:personal_website/data/project.dart';
+import 'package:personal_website/models/project.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -45,7 +45,6 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
   @override
   Widget builder() {
     final double padding = max((screen.width - 1260) / 2, 15);
-    c.getProjects();
 
     return Scaffold(
       appBar: NavBar(),

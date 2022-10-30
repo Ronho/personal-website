@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import 'package:personal_website/data/project.dart';
+import 'package:personal_website/models/project.dart';
 
 class ProjectsController extends GetxController {
   static ProjectsController get to => Get.find();

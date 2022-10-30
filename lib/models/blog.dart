@@ -1,17 +1,16 @@
-class Project {
-  final List<String> tagIds;
+class Blog {
+  final String id;
+  final DateTime date;
   final List<String> authors;
   final bool isPublished;
   final String thumbnailPath;
-  final DateTime date;
   final DateTime lastUpdated;
   final String title;
   final String summary;
   final String body;
-  final String link;
 
-  Project({
-    required this.tagIds,
+  Blog({
+    required this.id,
     required this.authors,
     required this.isPublished,
     required this.thumbnailPath,
@@ -20,12 +19,11 @@ class Project {
     required this.title,
     required this.summary,
     required this.body,
-    required this.link,
   });
 
-  factory Project.fromJson(Map<dynamic, dynamic> json) {
-    return Project(
-      tagIds: (json['tagIds'] as List).map((item) => item as String).toList(),
+  factory Blog.fromJson(Map<dynamic, dynamic> json) {
+    return Blog(
+      id: json['id'].toString(),
       authors: (json['authors'] as List).map((item) => item as String).toList(),
       thumbnailPath: json['thumbnail'].toString(),
       isPublished: json['isPublished'],
@@ -34,7 +32,6 @@ class Project {
       title: json['title'].toString(),
       summary: json['summary'].toString(),
       body: json['body'].toString(),
-      link: json['link'].toString(),
     );
   }
 }

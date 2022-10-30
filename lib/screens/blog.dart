@@ -5,11 +5,15 @@ import 'package:flutter/material.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/item_card.dart';
+import 'package:personal_website/controller/blogs.dart';
+import 'package:personal_website/models/blog.dart';
 
 class ResponsiveController extends GetxController {}
 
 class BlogScreen extends GetResponsiveView<ResponsiveController> {
   BlogScreen({Key? key}) : super(key: key);
+
+  final BlogsController c = Get.put(BlogsController());
 
   int getCrossAxisCount(double screenWidth) {
     if (screenWidth < 455) {
@@ -43,33 +47,37 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
 
     return Scaffold(
       appBar: NavBar(),
-      body: Center(
-        child: Container(
-          alignment: Alignment.topCenter,
-          child: GridView.count(
-            padding: EdgeInsets.only(top: 15, left: padding, right: padding),
-            childAspectRatio: 1.2,
-            shrinkWrap: true,
-            primary: false,
-            crossAxisSpacing: 30,
-            mainAxisSpacing: 15,
-            crossAxisCount: getCrossAxisCount(screen.width),
-            children: List.generate(10, (index) {
-              return ItemCard(
-                numLines: getNumLines(screen.width),
-                thumbnailPath: "assets/images/thumbnails/thumbnail.jpg",
-                date: DateTime.now(),
-                summary:
-                    "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
-                title:
-                    "My Headline Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
-                onClick: () {
-                },
-              );
-            }),
+      body: Obx(() {
+        return Center(
+          child: Container(
+            alignment: Alignment.topCenter,
+            child: GridView(
+              padding: EdgeInsets.only(top: 15, left: padding, right: padding),
+              shrinkWrap: true,
+              primary: false,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: getCrossAxisCount(screen.width),
+                crossAxisSpacing: 30,
+                mainAxisSpacing: 15,
+                childAspectRatio: 1.2,
+              ),
+              children: [
+                for (Blog blog in c.blogs)
+                  ItemCard(
+                    numLines: getNumLines(screen.width),
+                    thumbnailPath: blog.thumbnailPath,
+                    date: blog.date,
+                    summary: blog.summary,
+                    title: blog.title,
+                    onClick: () {
+                      Get.toNamed('/blog/${blog.id}');
+                    },
+                  ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      }),
     );
   }
 }
