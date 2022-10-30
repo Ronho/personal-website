@@ -19,7 +19,7 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
-    final double padding = max((screen.width - 1260) / 2, 15);
+    final double padding = max((screen.width - 800) / 2, 15);
     final String id =
         Get.parameters['id'] != null ? Get.parameters['id']! : '1';
 
@@ -39,6 +39,7 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Image.asset(blog.thumbnailPath),
                     SelectableText(
                       blog.title,
                       style: const TextStyle(
