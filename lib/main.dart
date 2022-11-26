@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: '/experience',
-          page: () => const ExperienceScreen(),
+          page: () => ExperienceScreen(),
           transition: Transition.noTransition,
         ),
         GetPage(

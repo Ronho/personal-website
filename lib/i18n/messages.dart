@@ -10,7 +10,8 @@ class Messages extends Translations {
           'system': 'System',
           'blog': 'Blog',
           'projects': 'Projects',
-          'experience': 'Experience'
+          'experience': 'Experience',
+          'experience_screen_title': 'Work Experience and Education'
         },
         'de_DE': {
           'name': 'Deutsch Test',
@@ -19,7 +20,8 @@ class Messages extends Translations {
           'system': 'System',
           'blog': 'Blog',
           'projects': 'Projekte',
-          'experience': 'Erfahrung'
+          'experience': 'Erfahrung',
+          'experience_screen_title': 'Arbeitserfahrung und Ausbildung'
         }
       };
 }
