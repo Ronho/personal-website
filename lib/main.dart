@@ -8,10 +8,14 @@ import 'package:personal_website/screens/blog_details.dart';
 import 'package:personal_website/screens/experience.dart';
 import 'package:personal_website/screens/landing.dart';
 import 'package:personal_website/screens/project.dart';
-import 'package:personal_website/theme/themes.dart';
 import 'package:personal_website/screens/not_found.dart';
-import 'package:personal_website/controller/theme.dart';
+import 'package:personal_website/theme/themes.dart';
+import 'package:personal_website/controller/blogs.dart';
+import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/controller/locale.dart';
+import 'package:personal_website/controller/projects.dart';
+import 'package:personal_website/controller/search.dart';
+import 'package:personal_website/controller/theme.dart';
 
 void main() async {
   await GetStorage.init();
@@ -25,6 +29,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.lazyPut(() => ThemeController());
     Get.lazyPut(() => LocaleController());
+    Get.lazyPut(() => SearchController());
+    Get.lazyPut(() => BlogsController());
+    Get.lazyPut(() => ProjectsController());
+    Get.lazyPut(() => ExperienceController());
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

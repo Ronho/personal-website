@@ -32,15 +32,24 @@ class Job {
     );
   }
 
+  String get title => '$position - $role';
+
   static dynamic stringToDateOrString(String date) {
     if (date.toLowerCase() == 'present') {
       return 'Present';
     } else {
       try {
         return DateTime.parse(date);
-      } on Error catch (e) {
+      } on Error {
         throw ArgumentError.value(date);
       }
     }
+  }
+
+  bool containsText(String text) {
+    text = text.toLowerCase();
+    return title.toLowerCase().contains(text) |
+    summary.toLowerCase().contains(text) |
+    body.toLowerCase().contains(text);
   }
 }

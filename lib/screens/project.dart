@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +13,7 @@ class ResponsiveController extends GetxController {}
 class ProjectScreen extends GetResponsiveView<ResponsiveController> {
   ProjectScreen({Key? key}) : super(key: key);
 
-  final ProjectsController c = Get.put(ProjectsController());
+  final ProjectsController c = ProjectsController.to;
 
   int getCrossAxisCount(double screenWidth) {
     if (screenWidth < 455) {
@@ -70,10 +69,7 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
                     date: project.date,
                     summary: project.summary,
                     title: project.title,
-                    onClick: () {
-                      final Uri url = Uri.parse('https://www.github.com/');
-                      launchUrl(url);
-                    },
+                    onClick: project.onTap,
                   ),
               ],
             ),

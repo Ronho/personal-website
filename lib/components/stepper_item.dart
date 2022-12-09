@@ -55,13 +55,6 @@ class SubStepperItem extends StatelessWidget {
                     height: 4,
                   ),
                   getDate(),
-                  // SelectableText(
-                  //   '${DateFormat.yM().format(job.startDate)} - ${job.endDate == 'Present' ? job.endDate : DateFormat.yM().format(job.endDate)}',
-                  //   style: const TextStyle(
-                  //     fontSize: 18,
-                  //     fontWeight: FontWeight.bold,
-                  //   ),
-                  // ),
                 ],
               ),
             ),
@@ -92,7 +85,7 @@ class SubStepperItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SelectableText(
-                  '${job.position} - ${job.role}',
+                  job.title,
                   style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,

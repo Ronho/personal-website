@@ -13,7 +13,7 @@ class ResponsiveController extends GetxController {}
 class BlogScreen extends GetResponsiveView<ResponsiveController> {
   BlogScreen({Key? key}) : super(key: key);
 
-  final BlogsController c = Get.put(BlogsController());
+  final BlogsController c = BlogsController.to;
 
   int getCrossAxisCount(double screenWidth) {
     if (screenWidth < 455) {

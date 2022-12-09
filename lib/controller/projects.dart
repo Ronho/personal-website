@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/models/project.dart';
+import 'package:personal_website/models/search_bar_item.dart';
 
 class ProjectsController extends GetxController {
   static ProjectsController get to => Get.find();
@@ -22,5 +23,12 @@ class ProjectsController extends GetxController {
       projects.add(Project.fromJson(project));
     }
     this.projects.assignAll(projects);
+  }
+
+  List<SearchBarItem> search(String text) {
+    return projects
+        .where((e) => e.containsText(text))
+        .map((e) => e.asSearchbarItem)
+        .toList();
   }
 }

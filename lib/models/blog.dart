@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import 'package:personal_website/models/search_bar_item.dart';
+
 class Blog {
   final String id;
   final DateTime date;
@@ -35,6 +40,8 @@ class Blog {
     );
   }
 
+  static IconData get icon => Icons.feed;
+
   String get authorsAsString {
     String text = '';
     for (String entry in authors) {
@@ -46,5 +53,21 @@ class Blog {
     }
 
     return text;
+  }
+
+  SearchBarItem get asSearchbarItem {
+    return SearchBarItem(
+        icon: icon,
+        text: title,
+        category: 'blogs',
+        onTap: () => Get.toNamed('/blog/$id'));
+  }
+
+  bool containsText(String text) {
+    text = text.toLowerCase();
+    return title.toLowerCase().contains(text) |
+        summary.toLowerCase().contains(text) |
+        body.toLowerCase().contains(text) |
+        authors.any((val) => val.toLowerCase().contains(text));
   }
 }

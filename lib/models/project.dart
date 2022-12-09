@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import 'package:personal_website/models/search_bar_item.dart';
+
 class Project {
   final String id;
   final List<String> tagIds;
@@ -39,5 +44,25 @@ class Project {
       body: json['body'].toString(),
       link: json['link'].toString(),
     );
+  }
+
+  static IconData get icon => Icons.view_kanban;
+
+  void onTap() => launchUrl(Uri.parse('https://www.github.com/'));
+
+  SearchBarItem get asSearchbarItem {
+    return SearchBarItem(
+        icon: icon,
+        text: title,
+        category: 'project',
+        onTap: onTap);
+  }
+
+  bool containsText(String text) {
+    text = text.toLowerCase();
+    return title.toLowerCase().contains(text) |
+    summary.toLowerCase().contains(text) |
+    body.toLowerCase().contains(text) |
+    authors.any((val) => val.toLowerCase().contains(text));
   }
 }

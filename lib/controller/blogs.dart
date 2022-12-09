@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/models/blog.dart';
+import 'package:personal_website/models/search_bar_item.dart';
 
 class BlogsController extends GetxController {
   static BlogsController get to => Get.find();
@@ -26,5 +27,12 @@ class BlogsController extends GetxController {
 
   Blog? getBlogById(String id) {
     return blogs.firstWhereOrNull((blog) => blog.id == id);
+  }
+
+  List<SearchBarItem> search(String text) {
+    return blogs
+        .where((e) => e.containsText(text))
+        .map((e) => e.asSearchbarItem)
+        .toList();
   }
 }

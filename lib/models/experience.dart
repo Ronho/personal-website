@@ -1,6 +1,8 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'job.dart';
+import 'package:personal_website/models/job.dart';
+import 'package:personal_website/models/search_bar_item.dart';
 
 class Experience {
   final String id;
@@ -33,6 +35,8 @@ class Experience {
     );
   }
 
+  static IconData get icon => Icons.work;
+
   static List<Job> jobsFromJson(List<dynamic> jobs) {
     return jobs.map((x) => Job.fromJson(x)).toList();
   }
@@ -44,5 +48,18 @@ class Experience {
       rgbo[2].toInt(),
       rgbo[3],
     );
+  }
+
+  SearchBarItem get asSearchbarItem {
+    return SearchBarItem(
+        icon: icon,
+        text: '$company: ${jobs[0].title}',
+        category: 'experience',
+        onTap: () => Get.toNamed('/experience'));
+  }
+
+  bool containsText(String text) {
+    text = text.toLowerCase();
+    return jobs.any((val) => val.containsText(text));
   }
 }

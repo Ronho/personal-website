@@ -9,6 +9,8 @@ class Messages extends Translations {
           'de_DE': 'Deutsch',
           'system': 'System',
           'blog': 'Blog',
+          'blogs': 'Blogs',
+          'project': 'Project',
           'projects': 'Projects',
           'experience': 'Experience',
           'experience_screen_title': 'Work Experience and Education'
@@ -19,6 +21,8 @@ class Messages extends Translations {
           'de_DE': 'Deutsch',
           'system': 'System',
           'blog': 'Blog',
+          'blogs': 'Blogs',
+          'project': 'Projekt',
           'projects': 'Projekte',
           'experience': 'Erfahrung',
           'experience_screen_title': 'Arbeitserfahrung und Ausbildung'

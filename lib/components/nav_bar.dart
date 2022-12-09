@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:personal_website/controller/theme.dart';
-import 'package:personal_website/controller/locale.dart';
 import 'package:personal_website/components/nav_button.dart';
+import 'package:personal_website/components/search_bar.dart';
+import 'package:personal_website/controller/locale.dart';
+import 'package:personal_website/controller/search.dart';
+import 'package:personal_website/controller/theme.dart';
+import 'package:personal_website/models/blog.dart';
+import 'package:personal_website/models/project.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
   NavBar({Key? key}) : super(key: key);
@@ -14,6 +18,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
 
   final ThemeController themeController = ThemeController.to;
   final LocaleController localeController = LocaleController.to;
+  final SearchController searchController = SearchController.to;
 
   bool isActive(String currentRoute, String checkRoute) {
     return currentRoute == checkRoute;
@@ -34,43 +39,52 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            NavButton(
-              onClick: () {
-                Get.toNamed('/experience');
-              },
-              name: 'experience'.tr,
-              icon: Icons.work,
-              isActive: isActive(Get.currentRoute, '/experience'),
-            ),
-            const SizedBox(
-              width: 48,
-            ),
-            NavButton(
-              onClick: () {
-                Get.toNamed('/projects');
-              },
-              name: 'projects'.tr,
-              icon: Icons.view_kanban,
-              isActive: isActive(Get.currentRoute, '/projects'),
-            ),
-            const SizedBox(
-              width: 48,
-            ),
-            NavButton(
-              onClick: () {
-                Get.toNamed('/blog');
-              },
-              name: 'blog'.tr,
-              icon: Icons.feed,
-              isActive: isActive(Get.currentRoute, '/blog'),
-            ),
-            const SizedBox(
-              width: 48,
-            ),
-            IconButton(
-              onPressed: () async {}, //TODO: display search bar
-              icon: const Icon(Icons.search),
-            ),
+            if (searchController.searchBarActivated)
+              SearchBar(
+                onFocusLeft: searchController.toggleSearchBar,
+                updateLastSearch: searchController.updateLastSearch,
+                search: searchController.search,
+                lastSearch: searchController.lastSearch,
+              )
+            else ...[
+              NavButton(
+                onClick: () {
+                  Get.toNamed('/experience');
+                },
+                name: 'experience'.tr,
+                icon: Icons.work,
+                isActive: isActive(Get.currentRoute, '/experience'),
+              ),
+              const SizedBox(
+                width: 48,
+              ),
+              NavButton(
+                onClick: () {
+                  Get.toNamed('/projects');
+                },
+                name: 'projects'.tr,
+                icon: Project.icon,
+                isActive: isActive(Get.currentRoute, '/projects'),
+              ),
+              const SizedBox(
+                width: 48,
+              ),
+              NavButton(
+                onClick: () {
+                  Get.toNamed('/blog');
+                },
+                name: 'blog'.tr,
+                icon: Blog.icon,
+                isActive: isActive(Get.currentRoute, '/blog'),
+              ),
+              const SizedBox(
+                width: 48,
+              ),
+              IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: () => searchController.toggleSearchBar(),
+              ),
+            ],
           ],
         ),
         actions: [
