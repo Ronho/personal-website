@@ -13,7 +13,8 @@ class Messages extends Translations {
           'project': 'Project',
           'projects': 'Projects',
           'experience': 'Experience',
-          'experience_screen_title': 'Work Experience and Education'
+          'experience_screen_title': 'Work Experience and Education',
+          'home': 'Home',
         },
         'de_DE': {
           'name': 'Deutsch Test',
@@ -25,7 +26,8 @@ class Messages extends Translations {
           'project': 'Projekt',
           'projects': 'Projekte',
           'experience': 'Erfahrung',
-          'experience_screen_title': 'Arbeitserfahrung und Ausbildung'
+          'experience_screen_title': 'Arbeitserfahrung und Ausbildung',
+          'home': 'Home',
         }
       };
 }

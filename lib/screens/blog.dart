@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/components/nav_bar.dart';
+import 'package:personal_website/components/side_drawer.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
 import 'package:personal_website/services/size.dart';
@@ -10,6 +11,8 @@ import 'package:personal_website/services/size.dart';
 class ResponsiveController extends GetxController {}
 
 class BlogScreen extends GetResponsiveView<ResponsiveController> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   BlogScreen({Key? key}) : super(key: key);
 
   final BlogsController c = BlogsController.to;
@@ -45,7 +48,11 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
     final double padding = SizeService.leftRightPadding(screen.width);
 
     return Scaffold(
-      appBar: NavBar(),
+      key: scaffoldKey,
+      drawer: const SideDrawer(),
+      appBar: NavBar(
+        scaffoldKey: scaffoldKey,
+      ),
       body: Obx(() {
         return Center(
           child: Container(

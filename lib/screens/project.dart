@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:personal_website/components/side_drawer.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/controller/projects.dart';
@@ -42,10 +43,15 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     final double padding = SizeService.leftRightPadding(screen.width);
 
     return Scaffold(
-      appBar: NavBar(),
+      key: scaffoldKey,
+      drawer: const SideDrawer(),
+      appBar: NavBar(
+        scaffoldKey: scaffoldKey,
+      ),
       body: Obx(() {
         return Center(
           child: Container(

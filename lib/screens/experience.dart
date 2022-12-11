@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
+import 'package:personal_website/components/side_drawer.dart';
 import 'package:personal_website/components/stepper_item.dart';
 import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/models/experience.dart';
@@ -10,6 +11,8 @@ import 'package:personal_website/services/size.dart';
 class ResponsiveController extends GetxController {}
 
 class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   ExperienceScreen({Key? key}) : super(key: key);
 
   final ExperienceController c = Get.put(ExperienceController());
@@ -23,7 +26,11 @@ class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
     final bool wideMode = width > 600;
 
     return Scaffold(
-      appBar: NavBar(),
+      key: scaffoldKey,
+      drawer: const SideDrawer(),
+      appBar: NavBar(
+        scaffoldKey: scaffoldKey,
+      ),
       body: Obx(() {
         List<Experience> experiences = c.experience;
         return Center(

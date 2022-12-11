@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/footer.dart';
+import 'package:personal_website/components/nav_bar.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({Key? key}) : super(key: key);

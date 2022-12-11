@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
 import 'package:personal_website/components/nav_button.dart';
 import 'package:personal_website/components/search_bar.dart';
@@ -9,9 +9,11 @@ import 'package:personal_website/controller/search.dart';
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/models/blog.dart';
 import 'package:personal_website/models/project.dart';
+import 'package:personal_website/services/size.dart';
 
 class NavBar extends StatelessWidget implements PreferredSizeWidget {
-  NavBar({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState>? scaffoldKey;
+  NavBar({Key? key, this.scaffoldKey}) : super(key: key);
 
   @override
   Size get preferredSize => const Size(double.infinity, 56);
@@ -24,69 +26,91 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     return currentRoute == checkRoute;
   }
 
+  Widget getLeading(bool isSmall) {
+    if (isSmall & (scaffoldKey != null)) {
+      return IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () => scaffoldKey!.currentState?.openDrawer());
+    } else {
+      return IconButton(
+        icon: const Icon(Icons.account_circle),
+        onPressed: () {
+          Get.toNamed('/');
+        },
+      );
+    }
+  }
+
+  Widget getTitle(bool searchIsActivated, bool isSmall, double width) {
+    if (searchIsActivated | isSmall) {
+      return SearchBar(
+        onFocusLeft: searchController.toggleSearchBar,
+        updateLastSearch: searchController.updateLastSearch,
+        search: searchController.search,
+        lastSearch: searchController.lastSearch,
+        width: width,
+        height: 50,
+      );
+    } else {
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          NavButton(
+            onClick: () {
+              Get.toNamed('/experience');
+            },
+            name: 'experience'.tr,
+            icon: Icons.work,
+            isActive: isActive(Get.currentRoute, '/experience'),
+          ),
+          const SizedBox(
+            width: 48,
+          ),
+          NavButton(
+            onClick: () {
+              Get.toNamed('/projects');
+            },
+            name: 'projects'.tr,
+            icon: Project.icon,
+            isActive: isActive(Get.currentRoute, '/projects'),
+          ),
+          const SizedBox(
+            width: 48,
+          ),
+          NavButton(
+            onClick: () {
+              Get.toNamed('/blog');
+            },
+            name: 'blog'.tr,
+            icon: Blog.icon,
+            isActive: isActive(Get.currentRoute, '/blog'),
+          ),
+          const SizedBox(
+            width: 48,
+          ),
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () => searchController.toggleSearchBar(),
+          ),
+        ],
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
+    final double titleWidth =
+        SizeService.middleSize(width, 300, 150, maxWidth: 750);
+    final bool isSmall = width < SizeService.smallNavBar;
+
     return Obx(() {
       return AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(
-          icon: const Icon(Icons.account_circle),
-          onPressed: () {
-            Get.toNamed('/');
-          },
-        ),
+        leading: getLeading(isSmall),
         centerTitle: true,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (searchController.searchBarActivated)
-              SearchBar(
-                onFocusLeft: searchController.toggleSearchBar,
-                updateLastSearch: searchController.updateLastSearch,
-                search: searchController.search,
-                lastSearch: searchController.lastSearch,
-              )
-            else ...[
-              NavButton(
-                onClick: () {
-                  Get.toNamed('/experience');
-                },
-                name: 'experience'.tr,
-                icon: Icons.work,
-                isActive: isActive(Get.currentRoute, '/experience'),
-              ),
-              const SizedBox(
-                width: 48,
-              ),
-              NavButton(
-                onClick: () {
-                  Get.toNamed('/projects');
-                },
-                name: 'projects'.tr,
-                icon: Project.icon,
-                isActive: isActive(Get.currentRoute, '/projects'),
-              ),
-              const SizedBox(
-                width: 48,
-              ),
-              NavButton(
-                onClick: () {
-                  Get.toNamed('/blog');
-                },
-                name: 'blog'.tr,
-                icon: Blog.icon,
-                isActive: isActive(Get.currentRoute, '/blog'),
-              ),
-              const SizedBox(
-                width: 48,
-              ),
-              IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () => searchController.toggleSearchBar(),
-              ),
-            ],
-          ],
-        ),
+        title:
+            getTitle(searchController.searchBarActivated, isSmall, titleWidth),
         actions: [
           // Buttons to change locale and language
           DropdownButton<String>(

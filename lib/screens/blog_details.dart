@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
 
 import 'package:personal_website/components/nav_bar.dart';
+import 'package:personal_website/components/side_drawer.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
 import 'package:personal_website/services/size.dart';
@@ -12,6 +13,8 @@ import 'package:personal_website/services/size.dart';
 class ResponsiveController extends GetxController {}
 
 class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
   BlogDetailsScreen({Key? key}) : super(key: key);
 
   final BlogsController c = Get.put(BlogsController());
@@ -24,7 +27,11 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
         Get.parameters['id'] != null ? Get.parameters['id']! : '1';
 
     return Scaffold(
-      appBar: NavBar(),
+      key: scaffoldKey,
+      drawer: const SideDrawer(),
+      appBar: NavBar(
+        scaffoldKey: scaffoldKey,
+      ),
       body: Center(
         child: Container(
           alignment: Alignment.topCenter,

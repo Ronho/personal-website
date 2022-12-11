@@ -8,12 +8,17 @@ class SearchBar extends StatefulWidget {
   final Function(String text) updateLastSearch;
   final List<SearchBarItem> Function(String text) search;
   final String lastSearch;
+  final double width;
+  final double height;
+
   const SearchBar(
       {Key? key,
       required this.onFocusLeft,
       required this.search,
       required this.lastSearch,
-      required this.updateLastSearch})
+      required this.updateLastSearch,
+      required this.width,
+      required this.height})
       : super(key: key);
 
   @override
@@ -97,8 +102,8 @@ class _SearchBarState extends State<SearchBar> {
     return CompositedTransformTarget(
       link: layerLink,
       child: SizedBox(
-        width: 500,
-        height: 50,
+        width: widget.width,
+        height: widget.height,
         child: TextField(
           controller: textController,
           focusNode: _focusNode,
