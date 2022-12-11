@@ -12,6 +12,7 @@ class Footer extends StatelessWidget implements PreferredSizeWidget {
   final ThemeController themeController = ThemeController.to;
   final LocaleController localeController = LocaleController.to;
 
+  @override
   Widget build(BuildContext context) {
     return Container(
       width: preferredSize.width,

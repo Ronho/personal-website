@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
-import 'package:personal_website/screens/wrapper.dart';
+import 'package:personal_website/screens/screen_wrapper.dart';
 import 'package:personal_website/services/size.dart';
 
 class ResponsiveController extends GetxController {}
