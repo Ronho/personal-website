@@ -1,12 +1,11 @@
-import 'dart:math';
-
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/stepper_item.dart';
 import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/models/experience.dart';
+import 'package:personal_website/services/size.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -18,7 +17,7 @@ class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
   @override
   Widget builder() {
     final double width = screen.width;
-    final double padding = max((width - 1260) / 2, 15);
+    final double padding = SizeService.leftRightPadding(width);
     final double elementHeight = (width / 2 - padding) * 9 / 16;
 
     final bool wideMode = width > 600;

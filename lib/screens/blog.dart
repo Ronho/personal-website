@@ -1,12 +1,11 @@
-import 'dart:math';
-
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/item_card.dart';
+import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
+import 'package:personal_website/services/size.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -43,7 +42,7 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
-    final double padding = max((screen.width - 1260) / 2, 15);
+    final double padding = SizeService.leftRightPadding(screen.width);
 
     return Scaffold(
       appBar: NavBar(),

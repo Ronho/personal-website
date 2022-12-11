@@ -1,14 +1,13 @@
-import 'dart:math';
-
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:get/get.dart';
-import 'package:flutter/material.dart';
 
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
+import 'package:personal_website/services/size.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -19,7 +18,8 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
-    final double padding = max((screen.width - 800) / 2, 15);
+    final double padding =
+        SizeService.leftRightPadding(screen.width, maxWidth: 800);
     final String id =
         Get.parameters['id'] != null ? Get.parameters['id']! : '1';
 
