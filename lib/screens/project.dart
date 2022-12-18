@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/controller/projects.dart';
 import 'package:personal_website/models/project.dart';
@@ -49,28 +50,35 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
         return Center(
           child: Container(
             alignment: Alignment.topCenter,
-            child: GridView(
-              padding: EdgeInsets.only(top: 15, left: padding, right: padding),
-              shrinkWrap: true,
-              primary: false,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: getCrossAxisCount(screen.width),
-                crossAxisSpacing: 30,
-                mainAxisSpacing: 15,
-                childAspectRatio: 1.2,
-              ),
-              children: [
-                for (Project project in c.projects)
-                  ItemCard(
-                    numLines: getNumLines(screen.width),
-                    thumbnailPath: project.thumbnailPath,
-                    date: project.date,
-                    summary: project.summary,
-                    title: project.title,
-                    onClick: project.onTap,
+            child: CustomScrollView(slivers: [
+              SliverPadding(
+                padding:
+                    EdgeInsets.only(top: 15, left: padding, right: padding),
+                sliver: SliverGrid(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: getCrossAxisCount(screen.width),
+                    crossAxisSpacing: 30,
+                    mainAxisSpacing: 15,
+                    childAspectRatio: 1.2,
                   ),
-              ],
-            ),
+                  delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    Project project = c.projects[index];
+                    return ItemCard(
+                      numLines: getNumLines(screen.width),
+                      thumbnailPath: project.thumbnailPath,
+                      date: project.date,
+                      summary: project.summary,
+                      title: project.title,
+                      onClick: project.onTap,
+                    );
+                  }, childCount: c.projects.length),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Footer(),
+              ),
+            ]),
           ),
         );
       }),

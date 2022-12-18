@@ -48,7 +48,7 @@ class Project {
 
   static IconData get icon => Icons.view_kanban;
 
-  void onTap() => launchUrl(Uri.parse('https://www.github.com/'));
+  void onTap() => launchUrl(Uri.parse(link));
 
   SearchBarItem get asSearchbarItem {
     return SearchBarItem(

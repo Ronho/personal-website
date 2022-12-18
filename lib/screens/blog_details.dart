@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
 
+import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
 import 'package:personal_website/screens/screen_wrapper.dart';
@@ -61,6 +62,7 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                       extensionSet: md.ExtensionSet.gitHubWeb,
                       data: blog.body,
                     ),
+                    Footer(),
                   ],
                 ),
               );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/components/stepper_item.dart';
 import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/models/experience.dart';
@@ -65,6 +66,7 @@ class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
                       wide: wideMode,
                     ),
                 ],
+                Footer(),
               ],
             ),
           ),

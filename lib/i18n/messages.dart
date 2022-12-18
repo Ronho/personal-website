@@ -15,6 +15,8 @@ class Messages extends Translations {
           'experience': 'Experience',
           'experience_screen_title': 'Work Experience and Education',
           'home': 'Home',
+          'imprint': 'Imprint',
+          'data_protection': 'Data Protection'
         },
         'de_DE': {
           'name': 'Deutsch Test',
@@ -28,6 +30,8 @@ class Messages extends Translations {
           'experience': 'Erfahrung',
           'experience_screen_title': 'Arbeitserfahrung und Ausbildung',
           'home': 'Home',
+          'imprint': 'Impressum',
+          'data_protection': 'Datenschutz'
         }
       };
 }

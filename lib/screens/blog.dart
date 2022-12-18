@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
@@ -71,6 +72,7 @@ class BlogScreen extends GetResponsiveView<ResponsiveController> {
                       Get.toNamed('/blog/${blog.id}');
                     },
                   ),
+                Footer(),
               ],
             ),
           ),
