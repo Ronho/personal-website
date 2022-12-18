@@ -1,23 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/components/nav_bar.dart';
 import 'package:personal_website/components/side_drawer.dart';
+import 'package:personal_website/services/size.dart';
 
-class ScreenWrapper extends StatelessWidget {
+class ResponsiveController extends GetxController {}
+
+class ScreenWrapper extends GetResponsiveView<ResponsiveController> {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final Widget child;
+  final double? maxWidth;
 
-  ScreenWrapper({Key? key, required this.child}) : super(key: key);
+  ScreenWrapper({Key? key, required this.child, this.maxWidth})
+      : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget builder() {
+    final double padding = SizeService.leftRightPadding(screen.width,
+        maxWidth: maxWidth != null ? maxWidth! : SizeService.maxWidth);
+
     return Scaffold(
       key: scaffoldKey,
       drawer: const SideDrawer(),
       appBar: NavBar(
         scaffoldKey: scaffoldKey,
       ),
-      body: child,
+      body: Center(
+        child: Container(
+          alignment: Alignment.topCenter,
+          child: CustomScrollView(
+            slivers: [
+              SliverPadding(
+                padding:
+                    EdgeInsets.only(top: 15, left: padding, right: padding),
+                sliver: child,
+              ),
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Footer(),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

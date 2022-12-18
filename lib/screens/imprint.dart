@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:personal_website/screens/screen_wrapper.dart';
 
-class LandingScreen extends StatelessWidget {
-  const LandingScreen({Key? key}) : super(key: key);
+class ImprintScreen extends StatelessWidget {
+  const ImprintScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

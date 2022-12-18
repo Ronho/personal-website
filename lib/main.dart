@@ -6,6 +6,7 @@ import 'package:personal_website/i18n/messages.dart';
 import 'package:personal_website/screens/blog.dart';
 import 'package:personal_website/screens/blog_details.dart';
 import 'package:personal_website/screens/experience.dart';
+import 'package:personal_website/screens/imprint.dart';
 import 'package:personal_website/screens/landing.dart';
 import 'package:personal_website/screens/project.dart';
 import 'package:personal_website/screens/not_found.dart';
@@ -72,6 +73,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/blog/:id',
           page: () => BlogDetailsScreen(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: '/imprint',
+          page: () => const ImprintScreen(),
           transition: Transition.noTransition,
         ),
       ],

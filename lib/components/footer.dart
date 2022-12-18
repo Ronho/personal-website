@@ -63,13 +63,7 @@ class Footer extends StatelessWidget {
                   onPressed: () {
                     Get.toNamed('/imprint');
                   },
-                  child: Text('imprint'.tr)),
-              const Text(' • '),
-              TextButton(
-                  onPressed: () {
-                    Get.toNamed('/data_protection');
-                  },
-                  child: Text('data_protection'.tr)),
+                  child: Text('${'imprint'.tr} & ${'data_protection'.tr}')),
             ],
           ),
           const Text(

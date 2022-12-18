@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:personal_website/components/footer.dart';
 import 'package:personal_website/components/item_card.dart';
 import 'package:personal_website/controller/projects.dart';
 import 'package:personal_website/models/project.dart';
 import 'package:personal_website/screens/screen_wrapper.dart';
-import 'package:personal_website/services/size.dart';
 
 class ResponsiveController extends GetxController {}
 
@@ -43,43 +41,27 @@ class ProjectScreen extends GetResponsiveView<ResponsiveController> {
 
   @override
   Widget builder() {
-    final double padding = SizeService.leftRightPadding(screen.width);
-
     return ScreenWrapper(
       child: Obx(() {
-        return Center(
-          child: Container(
-            alignment: Alignment.topCenter,
-            child: CustomScrollView(slivers: [
-              SliverPadding(
-                padding:
-                    EdgeInsets.only(top: 15, left: padding, right: padding),
-                sliver: SliverGrid(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: getCrossAxisCount(screen.width),
-                    crossAxisSpacing: 30,
-                    mainAxisSpacing: 15,
-                    childAspectRatio: 1.2,
-                  ),
-                  delegate: SliverChildBuilderDelegate(
-                      (BuildContext context, int index) {
-                    Project project = c.projects[index];
-                    return ItemCard(
-                      numLines: getNumLines(screen.width),
-                      thumbnailPath: project.thumbnailPath,
-                      date: project.date,
-                      summary: project.summary,
-                      title: project.title,
-                      onClick: project.onTap,
-                    );
-                  }, childCount: c.projects.length),
-                ),
-              ),
-              SliverToBoxAdapter(
-                child: Footer(),
-              ),
-            ]),
+        return SliverGrid(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: getCrossAxisCount(screen.width),
+            crossAxisSpacing: 30,
+            mainAxisSpacing: 15,
+            childAspectRatio: 1.2,
           ),
+          delegate:
+              SliverChildBuilderDelegate((BuildContext context, int index) {
+            Project project = c.projects[index];
+            return ItemCard(
+              numLines: getNumLines(screen.width),
+              thumbnailPath: project.thumbnailPath,
+              date: project.date,
+              summary: project.summary,
+              title: project.title,
+              onClick: project.onTap,
+            );
+          }, childCount: c.projects.length),
         );
       }),
     );
