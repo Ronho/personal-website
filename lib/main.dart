@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'name',
+      title: 'Ron Holzapfel',
       initialRoute: '/',
       themeMode: ThemeController.to.getThemeMode(),
       darkTheme: Themes.darkTheme,
