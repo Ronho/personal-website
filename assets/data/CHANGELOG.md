@@ -13,5 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initialization of the CHANGELOG.md.
 
-[unreleased]: https://github.com/Ronho/prinvars/compare/v0.1.0...HEAD
-[0.0.1]: https://github.com/Ronho/personal-website/tree/v0.1.0
+### Changed
+
+- Footer does not fill remaining space.
+
+[unreleased]: https://github.com/Ronho/personal-website/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1

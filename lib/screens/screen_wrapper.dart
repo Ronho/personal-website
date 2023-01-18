@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/components/footer.dart';
@@ -39,7 +40,17 @@ class ScreenWrapper extends GetResponsiveView<ResponsiveController> {
               ),
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: Footer(),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    color: Colors.blueAccent,
+                    child: Center(
+                      child: Footer()
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
