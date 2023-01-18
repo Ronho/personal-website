@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/controller/locale.dart';
+import 'package:personal_website/version.dart' as v;
 import 'package:url_launcher/url_launcher.dart';
 
 class Footer extends StatelessWidget {
@@ -66,8 +67,8 @@ class Footer extends StatelessWidget {
                   child: Text('${'imprint'.tr} & ${'data_protection'.tr}')),
             ],
           ),
-          const Text(
-            '© 2023 Ron Holzapfel',
+          const SelectableText(
+            '© 2023 Ron Holzapfel • ${v.VERSION}',
             style: TextStyle(color: Colors.grey),
           ),
           const SizedBox(height: 15),
