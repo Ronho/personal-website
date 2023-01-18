@@ -17,7 +17,8 @@ class Messages extends Translations {
           'home': 'Home',
           'imprint': 'Imprint',
           'data_protection': 'Data Protection',
-          'changelog': 'Changelog'
+          'changelog': 'Changelog',
+          'search': 'Search'
         },
         'de_DE': {
           'name': 'Deutsch Test',
@@ -33,7 +34,8 @@ class Messages extends Translations {
           'home': 'Home',
           'imprint': 'Impressum',
           'data_protection': 'Datenschutz',
-          'changelog': 'Changelog'
+          'changelog': 'Changelog',
+          'search': 'Suche'
         }
       };
 }

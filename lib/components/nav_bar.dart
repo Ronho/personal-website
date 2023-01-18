@@ -42,7 +42,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   Widget getTitle(bool searchIsActivated, bool isSmall, double width) {
-    if (searchIsActivated | isSmall) {
+    if (searchIsActivated) {
       return SearchBar(
         onFocusLeft: searchController.toggleSearchBar,
         updateLastSearch: searchController.updateLastSearch,
@@ -50,6 +50,13 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
         lastSearch: searchController.lastSearch,
         width: width,
         height: 50,
+      );
+    } else if (isSmall) {
+      return NavButton(
+        onClick: searchController.toggleSearchBar,
+        name: 'search'.tr,
+        icon: Icons.search,
+        isActive: true,
       );
     } else {
       return Row(
@@ -105,93 +112,104 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     final bool isSmall = width < SizeService.smallNavBar;
 
     return Obx(() {
-      return AppBar(
-        automaticallyImplyLeading: false,
-        leading: getLeading(isSmall),
-        centerTitle: true,
-        title:
-            getTitle(searchController.searchBarActivated, isSmall, titleWidth),
-        actions: [
-          // Buttons to change locale and language
-          DropdownButton<String>(
-            value: localeController.localeString,
-            onChanged: (value) async {
-              if (value != null) {
-                await localeController.saveLocale(value);
-                Get.updateLocale(localeController.locale);
-              }
-            },
-            items: [
-              DropdownMenuItem(
-                value: 'en_US',
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                      child: SvgPicture.asset(
-                        'assets/images/flags/flag_us.svg',
-                        width: 24,
-                      ),
-                    ),
-                    Text('en_US'.tr),
-                  ],
-                ),
-              ),
-              DropdownMenuItem(
-                value: 'de_DE',
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                      child: SvgPicture.asset(
-                        'assets/images/flags/flag_germany.svg',
-                        width: 24,
-                      ),
-                    ),
-                    Text('de_DE'.tr),
-                  ],
-                ),
-              ),
-              DropdownMenuItem(
-                value: 'system',
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                      child: SvgPicture.asset(
-                        'assets/images/flags/flag_system.svg',
-                        width: 24,
-                      ),
-                    ),
-                    Text('system'.tr),
-                  ],
-                ),
-              ),
-            ],
-          ),
-
-          // Buttons to change theme
-          if (ThemeController.isLight(themeController.themeModeString))
-            IconButton(
-              onPressed: () async {
-                await themeController.saveThemeMode('dark');
-                Get.changeThemeMode(themeController.themeMode);
+      if (searchController.searchBarActivated & isSmall) {
+        return SearchBar(
+          onFocusLeft: searchController.toggleSearchBar,
+          updateLastSearch: searchController.updateLastSearch,
+          search: searchController.search,
+          lastSearch: searchController.lastSearch,
+          width: width,
+          height: 50,
+        );
+      } else {
+        return AppBar(
+          automaticallyImplyLeading: false,
+          leading: getLeading(isSmall),
+          centerTitle: true,
+          title: getTitle(
+              searchController.searchBarActivated, isSmall, titleWidth),
+          actions: [
+            // Buttons to change locale and language
+            DropdownButton<String>(
+              value: localeController.localeString,
+              onChanged: (value) async {
+                if (value != null) {
+                  await localeController.saveLocale(value);
+                  Get.updateLocale(localeController.locale);
+                }
               },
-              icon: const Icon(Icons.dark_mode),
-            )
-          else
-            IconButton(
-              onPressed: () async {
-                await themeController.saveThemeMode('light');
-                Get.changeThemeMode(themeController.themeMode);
-              },
-              icon: const Icon(Icons.brightness_high),
+              items: [
+                DropdownMenuItem(
+                  value: 'en_US',
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                        child: SvgPicture.asset(
+                          'assets/images/flags/flag_us.svg',
+                          width: 24,
+                        ),
+                      ),
+                      Text('en_US'.tr),
+                    ],
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: 'de_DE',
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                        child: SvgPicture.asset(
+                          'assets/images/flags/flag_germany.svg',
+                          width: 24,
+                        ),
+                      ),
+                      Text('de_DE'.tr),
+                    ],
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: 'system',
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
+                        child: SvgPicture.asset(
+                          'assets/images/flags/flag_system.svg',
+                          width: 24,
+                        ),
+                      ),
+                      Text('system'.tr),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          const SizedBox(
-            width: 16,
-          ),
-        ],
-      );
+
+            // Buttons to change theme
+            if (ThemeController.isLight(themeController.themeModeString))
+              IconButton(
+                onPressed: () async {
+                  await themeController.saveThemeMode('dark');
+                  Get.changeThemeMode(themeController.themeMode);
+                },
+                icon: const Icon(Icons.dark_mode),
+              )
+            else
+              IconButton(
+                onPressed: () async {
+                  await themeController.saveThemeMode('light');
+                  Get.changeThemeMode(themeController.themeMode);
+                },
+                icon: const Icon(Icons.brightness_high),
+              ),
+            const SizedBox(
+              width: 16,
+            ),
+          ],
+        );
+      }
     });
   }
 }
