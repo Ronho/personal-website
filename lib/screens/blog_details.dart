@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/models/blog.dart';
@@ -53,6 +54,12 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                   selectable: true,
                   extensionSet: md.ExtensionSet.gitHubWeb,
                   data: blog.body,
+                  onTapLink: (text, url, title){
+                    if (url != null) {
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    }
+                  },
                 ),
               ],
             ),

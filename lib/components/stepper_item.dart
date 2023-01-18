@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:markdown/markdown.dart' as md;
-import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:personal_website/components/stepper_dot.dart';
 import 'package:personal_website/models/experience.dart';
@@ -104,6 +105,12 @@ class SubStepperItem extends StatelessWidget {
                   selectable: true,
                   extensionSet: md.ExtensionSet.gitHubWeb,
                   data: job.body,
+                  onTapLink: (text, url, title){
+                    if (url != null) {
+                      final uri = Uri.parse(url);
+                      launchUrl(uri);
+                    }
+                  },
                 ),
                 const SizedBox(
                   height: 32,
