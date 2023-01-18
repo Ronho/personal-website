@@ -33,6 +33,7 @@ class BlogsController extends GetxController {
     return blogs
         .where((e) => e.containsText(text))
         .map((e) => e.asSearchbarItem)
+        .take(3)
         .toList();
   }
 }

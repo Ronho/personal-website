@@ -45,6 +45,7 @@ class ProjectsController extends GetxController {
     return projects
         .where((e) => e.containsText(text))
         .map((e) => e.asSearchbarItem)
+        .take(3)
         .toList();
   }
 }

@@ -29,6 +29,7 @@ class ExperienceController extends GetxController {
     return experience
         .where((e) => e.containsText(text))
         .map((e) => e.asSearchbarItem)
+        .take(3)
         .toList();
   }
 }
