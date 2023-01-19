@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Footer does not fill remaining space.
 - Max 9 elements are returned by search.
 - Searchbar extends over full screen on small screen sizes and is now represented by a button.
+- Search bar does not update state.
+- Add locale button to side drawer on small screens.
 
 [unreleased]: https://github.com/Ronho/personal-website/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1

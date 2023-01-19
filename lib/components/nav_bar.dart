@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import 'package:personal_website/components/locale_button.dart';
 import 'package:personal_website/components/nav_button.dart';
 import 'package:personal_website/components/search_bar.dart';
-import 'package:personal_website/controller/locale.dart';
 import 'package:personal_website/controller/search.dart';
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/models/blog.dart';
@@ -19,7 +18,6 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size(double.infinity, 56);
 
   final ThemeController themeController = ThemeController.to;
-  final LocaleController localeController = LocaleController.to;
   final SearchController searchController = SearchController.to;
 
   bool isActive(String currentRoute, String checkRoute) {
@@ -129,63 +127,8 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           title: getTitle(
               searchController.searchBarActivated, isSmall, titleWidth),
           actions: [
-            // Buttons to change locale and language
-            DropdownButton<String>(
-              value: localeController.localeString,
-              onChanged: (value) async {
-                if (value != null) {
-                  await localeController.saveLocale(value);
-                  Get.updateLocale(localeController.locale);
-                }
-              },
-              items: [
-                DropdownMenuItem(
-                  value: 'en_US',
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                        child: SvgPicture.asset(
-                          'assets/images/flags/flag_us.svg',
-                          width: 24,
-                        ),
-                      ),
-                      Text('en_US'.tr),
-                    ],
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: 'de_DE',
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                        child: SvgPicture.asset(
-                          'assets/images/flags/flag_germany.svg',
-                          width: 24,
-                        ),
-                      ),
-                      Text('de_DE'.tr),
-                    ],
-                  ),
-                ),
-                DropdownMenuItem(
-                  value: 'system',
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
-                        child: SvgPicture.asset(
-                          'assets/images/flags/flag_system.svg',
-                          width: 24,
-                        ),
-                      ),
-                      Text('system'.tr),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            if (!isSmall)
+              LocaleButton(),
 
             // Buttons to change theme
             if (ThemeController.isLight(themeController.themeModeString))

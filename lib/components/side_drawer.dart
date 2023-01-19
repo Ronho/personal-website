@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:personal_website/components/locale_button.dart';
 
 class SideDrawer extends StatelessWidget {
   const SideDrawer({Key? key}) : super(key: key);
@@ -30,6 +31,7 @@ class SideDrawer extends StatelessWidget {
                 Get.toNamed('/blog');
               },
               title: Text('blog'.tr)),
+          LocaleButton()
         ],
       ),
     );
