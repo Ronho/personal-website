@@ -65,6 +65,7 @@ flutter:
   assets:
     - assets/
     - assets/data/
+    - assets/data/blogs/
     - assets/images/logos/
     - assets/images/flags/
     - assets/images/thumbnails/

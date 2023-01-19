@@ -11,16 +11,18 @@ class BlogsController extends GetxController {
   RxList<Blog> blogs = <Blog>[].obs;
 
   BlogsController() {
-    getProjects();
+    getBlogs();
   }
 
-  Future<void> getProjects() async {
+  Future<void> getBlogs() async {
     final String jsonText =
         await rootBundle.loadString('assets/data/blogs.json');
     final dynamic json = jsonDecode(jsonText);
     List<Blog> blogs = [];
     for (dynamic blog in json) {
-      blogs.add(Blog.fromJson(blog));
+      Blog entry = Blog.fromJson(blog);
+      entry.getText();
+      blogs.add(entry);
     }
     this.blogs.assignAll(blogs);
   }

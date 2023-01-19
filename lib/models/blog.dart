@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/models/search_bar_item.dart';
@@ -12,7 +13,8 @@ class Blog {
   final DateTime lastUpdated;
   final String title;
   final String summary;
-  final String body;
+  final String bodyReference;
+  late String body;
 
   Blog({
     required this.id,
@@ -24,6 +26,7 @@ class Blog {
     required this.title,
     required this.summary,
     required this.body,
+    required this.bodyReference,
   });
 
   factory Blog.fromJson(Map<dynamic, dynamic> json) {
@@ -36,7 +39,8 @@ class Blog {
       lastUpdated: DateTime.parse(json['lastUpdated']),
       title: json['title'].toString(),
       summary: json['summary'].toString(),
-      body: json['body'].toString(),
+      body: '',
+      bodyReference: json['bodyReference'].toString(),
     );
   }
 
@@ -69,5 +73,9 @@ class Blog {
         summary.toLowerCase().contains(text) |
         body.toLowerCase().contains(text) |
         authors.any((val) => val.toLowerCase().contains(text));
+  }
+
+  Future<void> getText() async {
+    body = await rootBundle.loadString('assets/data/blogs/$bodyReference.md');
   }
 }

@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Search bar does not update state.
 - Add locale button to side drawer on small screens.
 - Search bar retrieves focus automatically.
+- Blog posts now contain bodyReference instead of body. bodyReference references md file inside the `assets/data/blogs/` directory.
 
 [unreleased]: https://github.com/Ronho/personal-website/compare/v0.0.1...HEAD
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1

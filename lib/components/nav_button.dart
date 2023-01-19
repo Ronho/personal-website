@@ -38,6 +38,12 @@ class _NavButtonState extends State<NavButton>
       });
   }
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   void animateColor() {
     controller.forward();
   }
