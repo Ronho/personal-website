@@ -79,7 +79,7 @@ class Footer extends StatelessWidget {
             '© 2023 Ron Holzapfel • ${v.VERSION}',
             style: TextStyle(color: Colors.grey),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 25),
         ],
       ),
     );

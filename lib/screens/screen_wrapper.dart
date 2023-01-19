@@ -44,7 +44,7 @@ class ScreenWrapper extends GetResponsiveView<ResponsiveController> {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                     width: double.infinity,
-                    height: 200,
+                    height: 250,
                     color: Colors.blueAccent,
                     child: Center(
                       child: Footer()
