@@ -105,6 +105,7 @@ class _SearchBarState extends State<SearchBar> {
         width: widget.width,
         height: widget.height,
         child: TextField(
+          autofocus: true,
           controller: textController,
           focusNode: _focusNode,
           decoration: const InputDecoration(
