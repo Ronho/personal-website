@@ -65,7 +65,7 @@ class _SearchBarState extends State<SearchBar> {
       _overlayEntry = null;
     }
     _focusNode.dispose();
-
+    textController.dispose();
     super.dispose();
   }
 
@@ -120,9 +120,9 @@ class _SearchBarState extends State<SearchBar> {
           onChanged: (text) {
             lastSearch = text;
             if (text.isNotEmpty) {
-              setState(() => {items = widget.search(text)});
+              items = widget.search(text);
             } else {
-              setState(() => {items = []});
+              items = [];
             }
           },
         ),
