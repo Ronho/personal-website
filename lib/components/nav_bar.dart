@@ -48,6 +48,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
         lastSearch: searchController.lastSearch,
         width: width,
         height: 50,
+        isSmall: isSmall,
       );
     } else if (isSmall) {
       return NavButton(
@@ -118,6 +119,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           lastSearch: searchController.lastSearch,
           width: width,
           height: 50,
+          isSmall: isSmall,
         );
       } else {
         return AppBar(

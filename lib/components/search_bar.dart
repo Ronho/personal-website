@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/models/search_bar_item.dart';
+import 'package:personal_website/services/size.dart';
 
 class SearchBar extends StatefulWidget {
   final Function onFocusLeft;
@@ -10,16 +11,18 @@ class SearchBar extends StatefulWidget {
   final String lastSearch;
   final double width;
   final double height;
+  final bool isSmall;
 
-  const SearchBar(
-      {Key? key,
-      required this.onFocusLeft,
-      required this.search,
-      required this.lastSearch,
-      required this.updateLastSearch,
-      required this.width,
-      required this.height})
-      : super(key: key);
+  const SearchBar({
+    Key? key,
+    required this.onFocusLeft,
+    required this.search,
+    required this.lastSearch,
+    required this.updateLastSearch,
+    required this.width,
+    required this.height,
+    required this.isSmall,
+  }) : super(key: key);
 
   @override
   State<SearchBar> createState() => _SearchBarState();
@@ -97,6 +100,36 @@ class _SearchBarState extends State<SearchBar> {
     });
   }
 
+  InputDecoration getInputDecoration(bool isSmall) {
+    if (widget.isSmall) {
+      return InputDecoration(
+        hintText: 'search_hinttext'.tr,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        contentPadding: const EdgeInsets.only(
+          left: SizeService.minPadding,
+          right: SizeService.minPadding,
+        ),
+        border: const UnderlineInputBorder(
+          borderSide: BorderSide(
+            width: 0,
+            style: BorderStyle.none,
+          ),
+        ),
+      );
+    } else {
+      return InputDecoration(
+        hintText: 'search_hinttext'.tr,
+        floatingLabelBehavior: FloatingLabelBehavior.never,
+        border: const OutlineInputBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CompositedTransformTarget(
@@ -108,16 +141,7 @@ class _SearchBarState extends State<SearchBar> {
           autofocus: true,
           controller: textController,
           focusNode: _focusNode,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
-            ),
-            hintText: 'Full-Text Search...',
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-          ),
+          decoration: getInputDecoration(widget.isSmall),
           onChanged: (text) {
             lastSearch = text;
             if (text.isNotEmpty) {

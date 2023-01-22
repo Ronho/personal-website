@@ -18,7 +18,8 @@ class Messages extends Translations {
           'imprint': 'Imprint',
           'data_protection': 'Data Protection',
           'changelog': 'Changelog',
-          'search': 'Search'
+          'search': 'Search',
+          'search_hinttext': 'Full-Text Search...',
         },
         'de_DE': {
           'name': 'Deutsch Test',
@@ -35,7 +36,8 @@ class Messages extends Translations {
           'imprint': 'Impressum',
           'data_protection': 'Datenschutz',
           'changelog': 'Changelog',
-          'search': 'Suche'
+          'search': 'Suche',
+          'search_hinttext': 'Volltextsuche...',
         }
       };
 }
