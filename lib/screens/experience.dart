@@ -37,6 +37,7 @@ class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
             height: 30,
           ),
           ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemCount: experiences.length,
               itemBuilder: (BuildContext context, int experienceIdx) {
