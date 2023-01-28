@@ -22,48 +22,46 @@ class ExperienceScreen extends GetResponsiveView<ResponsiveController> {
 
     final bool wideMode = width > 600;
 
-    return ScreenWrapper(
+    return ScreenWrapper(child: SliverToBoxAdapter(
       child: Obx(() {
         List<Experience> experiences = c.experience;
-        return SliverToBoxAdapter(
-          child: Column(children: [
-            SelectableText(
-              'experience_screen_title'.tr,
-              style: const TextStyle(
-                fontSize: 48,
-                fontWeight: FontWeight.bold,
-              ),
+        return Column(children: [
+          SelectableText(
+            'experience_screen_title'.tr,
+            style: const TextStyle(
+              fontSize: 48,
+              fontWeight: FontWeight.bold,
             ),
-            const SizedBox(
-              height: 30,
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          for (int experienceIdx = 0;
+              experienceIdx < experiences.length;
+              experienceIdx++) ...[
+            StepperItem(
+              isFirst: experienceIdx == 0,
+              height: elementHeight,
+              activeBarColor: Colors.blue,
+              barWidth: 2,
+              experience: experiences[experienceIdx],
+              wide: wideMode,
             ),
-            for (int experienceIdx = 0;
-                experienceIdx < experiences.length;
-                experienceIdx++) ...[
-              StepperItem(
-                isFirst: experienceIdx == 0,
-                height: elementHeight,
+            for (int jobIdx = 0;
+                jobIdx < experiences[experienceIdx].jobs.length;
+                jobIdx++)
+              SubStepperItem(
+                isLast: ((experienceIdx == experiences.length - 1) &
+                    (jobIdx == experiences[experienceIdx].jobs.length - 1)),
                 activeBarColor: Colors.blue,
                 barWidth: 2,
-                experience: experiences[experienceIdx],
+                gap: elementHeight,
+                job: experiences[experienceIdx].jobs[jobIdx],
                 wide: wideMode,
               ),
-              for (int jobIdx = 0;
-                  jobIdx < experiences[experienceIdx].jobs.length;
-                  jobIdx++)
-                SubStepperItem(
-                  isLast: ((experienceIdx == experiences.length - 1) &
-                      (jobIdx == experiences[experienceIdx].jobs.length - 1)),
-                  activeBarColor: Colors.blue,
-                  barWidth: 2,
-                  gap: elementHeight,
-                  job: experiences[experienceIdx].jobs[jobIdx],
-                  wide: wideMode,
-                ),
-            ]
-          ]),
-        );
+          ]
+        ]);
       }),
-    );
+    ));
   }
 }
