@@ -16,6 +16,8 @@ keyboards. This issue has been mentioned in
 ### Changed
 
 - Search bar adapts to mobile.
+- PWA title contains the name.
+- Experiences are lazy loaded to reduce lags.
 
 ## [0.0.1] - 2023-01-18
 
