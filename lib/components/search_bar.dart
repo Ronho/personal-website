@@ -143,21 +143,12 @@ class _SearchBarState extends State<SearchBar> {
           focusNode: _focusNode,
           decoration: getInputDecoration(widget.isSmall),
           onChanged: (String text) {
-            if (text.isNotEmpty) {
-              setState(() {
-                lastSearch = text;
-                items = widget.search(text);
-              });
-            } else {
-              setState(() {
-                lastSearch = text;
-                items = [];
-              });
-            }
-          },
-          onSubmitted: (String text) {
             lastSearch = text;
-            dispose();
+            if (text.isNotEmpty) {
+              setState(() => {items = widget.search(text)});
+            } else {
+              setState(() => {items = []});
+            }
           },
         ),
       ),
