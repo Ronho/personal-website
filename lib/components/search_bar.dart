@@ -55,6 +55,15 @@ class _SearchBarState extends State<SearchBar> {
     });
     lastSearch = widget.lastSearch;
     textController = TextEditingController(text: lastSearch);
+    textController.addListener(() {
+      String text = textController.text;
+      lastSearch = text;
+      if (text.isNotEmpty) {
+        items = widget.search(text);
+      } else {
+        items = [];
+      }
+    });
 
     if (lastSearch.isNotEmpty) {
       items = widget.search(lastSearch);
@@ -142,14 +151,6 @@ class _SearchBarState extends State<SearchBar> {
           controller: textController,
           focusNode: _focusNode,
           decoration: getInputDecoration(widget.isSmall),
-          onChanged: (text) {
-            lastSearch = text;
-            if (text.isNotEmpty) {
-              items = widget.search(text);
-            } else {
-              items = [];
-            }
-          },
         ),
       ),
     );
