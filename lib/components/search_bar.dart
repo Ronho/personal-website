@@ -59,9 +59,13 @@ class _SearchBarState extends State<SearchBar> {
       String text = textController.text;
       lastSearch = text;
       if (text.isNotEmpty) {
-        items = widget.search(text);
+        setState(() {
+          items = widget.search(text);
+        });
       } else {
-        items = [];
+        setState(() {
+          items = [];
+        });
       }
     });
 
