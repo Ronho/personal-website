@@ -31,7 +31,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () => scaffoldKey!.currentState?.openDrawer());
     } else {
       return IconButton(
-        icon: Image.asset('images/Icon-192.png'),
+        icon: Image.asset('assets/images/Icon-192.png'),
         onPressed: () {
           Get.toNamed('/');
         },
