@@ -30,13 +30,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => ThemeController());
-    Get.lazyPut(() => LocaleController());
-    Get.lazyPut(() => SearchController());
-    Get.lazyPut(() => BlogsController());
-    Get.lazyPut(() => ProjectsController());
-    Get.lazyPut(() => ExperienceController());
-    Get.lazyPut(() => ChangelogController());
+    Get.lazyPut<ThemeController>(() => ThemeController());
+    Get.lazyPut<LocaleController>(() => LocaleController());
+    Get.lazyPut<SearchController>(() => SearchController());
+    Get.lazyPut<ChangelogController>(() => ChangelogController());
+    Get.put<BlogsController>(BlogsController());
+    Get.put<ProjectsController>(ProjectsController());
+    Get.put<ExperienceController>(ExperienceController());
 
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,

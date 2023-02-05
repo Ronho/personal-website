@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/components/locale_button.dart';
+import 'package:personal_website/components/mobile_search_delegate.dart';
 import 'package:personal_website/components/nav_button.dart';
-import 'package:personal_website/components/search_bar.dart';
-import 'package:personal_website/controller/search.dart';
+// import 'package:personal_website/components/search_bar.dart';
+// import 'package:personal_website/controller/search.dart';
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/models/blog.dart';
 import 'package:personal_website/models/project.dart';
@@ -18,7 +19,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size(double.infinity, 56);
 
   final ThemeController themeController = ThemeController.to;
-  final SearchController searchController = SearchController.to;
+  // final SearchController searchController = SearchController.to;
 
   bool isActive(String currentRoute, String checkRoute) {
     return currentRoute == checkRoute;
@@ -39,20 +40,26 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     }
   }
 
-  Widget getTitle(bool searchIsActivated, bool isSmall, double width) {
-    if (searchIsActivated) {
-      return SearchBar(
-        onFocusLeft: searchController.toggleSearchBar,
-        updateLastSearch: searchController.updateLastSearch,
-        search: searchController.search,
-        lastSearch: searchController.lastSearch,
-        width: width,
-        height: 50,
-        isSmall: isSmall,
-      );
-    } else if (isSmall) {
+  Widget getTitle(
+    // bool searchIsActivated,
+    bool isSmall,
+    double width,
+    BuildContext context,
+  ) {
+    // if (searchIsActivated) {
+    //   return SearchBar(
+    //     onFocusLeft: searchController.toggleSearchBar,
+    //     updateLastSearch: searchController.updateLastSearch,
+    //     search: searchController.search,
+    //     lastSearch: searchController.lastSearch,
+    //     width: width,
+    //     height: 50,
+    //     isSmall: isSmall,
+    //   );
+    // } else
+    if (isSmall) {
       return NavButton(
-        onClick: searchController.toggleSearchBar,
+        onClick: () => MobileSearchDelegate.show(context),
         name: 'search'.tr,
         icon: Icons.search,
         isActive: true,
@@ -96,7 +103,7 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () => searchController.toggleSearchBar(),
+            onPressed: () => MobileSearchDelegate.show(context),
           ),
         ],
       );
@@ -111,50 +118,52 @@ class NavBar extends StatelessWidget implements PreferredSizeWidget {
     final bool isSmall = width < SizeService.smallNavBar;
 
     return Obx(() {
-      if (searchController.searchBarActivated & isSmall) {
-        return SearchBar(
-          onFocusLeft: searchController.toggleSearchBar,
-          updateLastSearch: searchController.updateLastSearch,
-          search: searchController.search,
-          lastSearch: searchController.lastSearch,
-          width: width,
-          height: 50,
-          isSmall: isSmall,
-        );
-      } else {
-        return AppBar(
-          automaticallyImplyLeading: false,
-          leading: getLeading(isSmall),
-          centerTitle: true,
-          title: getTitle(
-              searchController.searchBarActivated, isSmall, titleWidth),
-          actions: [
-            if (!isSmall)
-              LocaleButton(),
+      // if (searchController.searchBarActivated & isSmall) {
+      //   return SearchBar(
+      //     onFocusLeft: searchController.toggleSearchBar,
+      //     updateLastSearch: searchController.updateLastSearch,
+      //     search: searchController.search,
+      //     lastSearch: searchController.lastSearch,
+      //     width: width,
+      //     height: 50,
+      //     isSmall: isSmall,
+      //   );
+      // } else {
+      return AppBar(
+        automaticallyImplyLeading: false,
+        leading: getLeading(isSmall),
+        centerTitle: true,
+        title: getTitle(
+          // searchController.searchBarActivated,
+          isSmall,
+          titleWidth,
+          context,
+        ),
+        actions: [
+          if (!isSmall) LocaleButton(),
 
-            // Buttons to change theme
-            if (ThemeController.isLight(themeController.themeModeString))
-              IconButton(
-                onPressed: () async {
-                  await themeController.saveThemeMode('dark');
-                  Get.changeThemeMode(themeController.themeMode);
-                },
-                icon: const Icon(Icons.dark_mode),
-              )
-            else
-              IconButton(
-                onPressed: () async {
-                  await themeController.saveThemeMode('light');
-                  Get.changeThemeMode(themeController.themeMode);
-                },
-                icon: const Icon(Icons.brightness_high),
-              ),
-            const SizedBox(
-              width: 16,
+          // Buttons to change theme
+          if (ThemeController.isLight(themeController.themeModeString))
+            IconButton(
+              onPressed: () async {
+                await themeController.saveThemeMode('dark');
+                Get.changeThemeMode(themeController.themeMode);
+              },
+              icon: const Icon(Icons.dark_mode),
+            )
+          else
+            IconButton(
+              onPressed: () async {
+                await themeController.saveThemeMode('light');
+                Get.changeThemeMode(themeController.themeMode);
+              },
+              icon: const Icon(Icons.brightness_high),
             ),
-          ],
-        );
-      }
+          const SizedBox(
+            width: 16,
+          ),
+        ],
+      );
     });
   }
 }
