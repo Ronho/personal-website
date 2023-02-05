@@ -7,11 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Notes
 
-- There seems to be a Bug regarding the loss of focus when using the down arrow on android
-keyboards. This issue has been mentioned in
-[TextField doesn't loose focus on Android](https://github.com/flutter/flutter/issues/30954).
-
 ## [Unreleased]
+
+## [0.1.0] - 2023-02-05
 
 ### Changed
 
@@ -20,6 +18,7 @@ keyboards. This issue has been mentioned in
 - Experiences are lazy loaded to reduce lags.
 - New logo.
 - Language drop down does not show underline on mobile.
+- Use `SearchDelegate` instead of own search bar widget.
 
 ## [0.0.1] - 2023-01-18
 
@@ -38,5 +37,6 @@ keyboards. This issue has been mentioned in
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v0.0.1...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Ronho/personal-website/tree/v0.1.0
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1

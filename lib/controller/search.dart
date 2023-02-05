@@ -8,16 +8,8 @@ import 'package:personal_website/models/search_bar_item.dart';
 class SearchController extends GetxController {
   static SearchController get to => Get.find();
 
-  Rx<bool> _searchBarActivated = false.obs;
-  bool get searchBarActivated => _searchBarActivated.value;
-
   Rx<String> _lastSearch = ''.obs;
   String get lastSearch => _lastSearch.value;
-
-  void toggleSearchBar() {
-    _searchBarActivated.value = !_searchBarActivated.value;
-    update();
-  }
 
   void updateLastSearch(String text) {
     _lastSearch.value = text;
