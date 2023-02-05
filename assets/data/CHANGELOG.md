@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2023-02-05
 
 ### Pull Requests
+- [!3](https://github.com/Ronho/personal-website/pull/3): Remove search bar file.
 - [!2](https://github.com/Ronho/personal-website/pull/2): Update version and changelog.
 - [!1](https://github.com/Ronho/personal-website/pull/1): Remove old implementation of the search
 bars.
@@ -22,7 +23,7 @@ bars.
 - Search bar adapts to mobile.
 - PWA title contains the name.
 - Experiences are lazy loaded to reduce lags.
-- New logo.
+- New logo. (It's art, not trash!)
 - Language drop down does not show underline on mobile.
 - Use `SearchDelegate` instead of own search bar widget.
 
