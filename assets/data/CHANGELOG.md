@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.0] - 2023-02-05
 
+### Pull Requests
+- [!2](https://github.com/Ronho/personal-website/pull/2): Update version and changelog.
+- [!1](https://github.com/Ronho/personal-website/pull/1): Remove old implementation of the search
+bars.
+- **Note**: Some changes have not been part of a pull request.
+
 ### Changed
 
 - Search bar adapts to mobile.
