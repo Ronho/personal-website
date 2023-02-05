@@ -20,19 +20,26 @@ class ChangelogScreen extends GetResponsiveView<ResponsiveController> {
       maxWidth: 800,
       child: SliverToBoxAdapter(
         child: Obx(() {
-          return Markdown(
-            padding: const EdgeInsets.all(0),
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            selectable: true,
-            extensionSet: md.ExtensionSet.gitHubWeb,
-            data: c.changelog,
-            onTapLink: (text, url, title){
-              if (url != null) {
-                final uri = Uri.parse(url);
-                launchUrl(uri);
-              }
-            },
+          return Column(
+            children: [
+              Markdown(
+                padding: const EdgeInsets.all(0),
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                selectable: true,
+                extensionSet: md.ExtensionSet.gitHubWeb,
+                data: c.changelog,
+                onTapLink: (text, url, title) {
+                  if (url != null) {
+                    final uri = Uri.parse(url);
+                    launchUrl(uri);
+                  }
+                },
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+            ],
           );
         }),
       ),
