@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import 'package:personal_website/controller/theme.dart';
 import 'package:personal_website/controller/locale.dart';
@@ -60,13 +61,13 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(
-                  onPressed: () {
-                    Get.toNamed('/imprint');
-                  },
-                  child: Text('${'imprint'.tr} & ${'data_protection'.tr}'),
-              ),
-              const Text(' • '),
+              // TODO: TextButton(
+              //     onPressed: () {
+              //       Get.toNamed('/imprint');
+              //     },
+              //     child: Text('${'imprint'.tr} & ${'data_protection'.tr}'),
+              // ),
+              // const Text(' • '),
               TextButton(
                 onPressed: () {
                   Get.toNamed('/changelog');
@@ -75,9 +76,10 @@ class Footer extends StatelessWidget {
               ),
             ],
           ),
-          const SelectableText(
-            '© 2023 Ron Holzapfel • ${v.VERSION}',
-            style: TextStyle(color: Colors.grey),
+          SelectableText(
+            '© ${DateFormat('y').format(DateTime.now())} ' +
+                '${'name'.tr} • ${v.VERSION}',
+            style: const TextStyle(color: Colors.grey),
           ),
           const SizedBox(height: 25),
         ],
