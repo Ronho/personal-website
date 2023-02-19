@@ -13,7 +13,6 @@ class Project {
   final DateTime lastUpdated;
   final String title;
   final String summary;
-  final String body;
   final String link;
 
   Project({
@@ -26,7 +25,6 @@ class Project {
     required this.lastUpdated,
     required this.title,
     required this.summary,
-    required this.body,
     required this.link,
   });
 
@@ -41,7 +39,6 @@ class Project {
       lastUpdated: DateTime.parse(json['lastUpdated']),
       title: json['title'].toString(),
       summary: json['summary'].toString(),
-      body: json['body'].toString(),
       link: json['link'].toString(),
     );
   }
@@ -62,7 +59,6 @@ class Project {
     text = text.toLowerCase();
     return title.toLowerCase().contains(text) |
     summary.toLowerCase().contains(text) |
-    body.toLowerCase().contains(text) |
     authors.any((val) => val.toLowerCase().contains(text));
   }
 }

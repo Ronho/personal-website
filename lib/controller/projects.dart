@@ -21,22 +21,6 @@ class ProjectsController extends GetxController {
     List<Project> projects = [];
     for (dynamic project in json) {
       projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
-      projects.add(Project.fromJson(project));
     }
     this.projects.assignAll(projects);
   }
