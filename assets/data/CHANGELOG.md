@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Fix: assets involve images of the top level as well.
+- Fix: emojis are not displayed accordingly.
 
 ## [1.0.0] - 2023-02-19
 
