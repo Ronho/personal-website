@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/screens/screen_wrapper.dart';
-import 'package:personal_website/services/size.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class LandingScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 32,
         ),
         SelectableText(
@@ -48,7 +47,7 @@ class LandingScreen extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
-        child: Image.asset('assets/images/landing.jpg'),
+        child: Image.asset('assets/images/view.gif', scale: 0.5),
       ),
     );
   }
@@ -56,7 +55,7 @@ class LandingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
-    final bool smallScreen = screenSize.width < SizeService.smallNavBar;
+    final bool smallScreen = screenSize.width < 1400;
     final double maxWidth =
         smallScreen ? screenSize.width : screenSize.width - 300;
 
@@ -68,13 +67,13 @@ class LandingScreen extends StatelessWidget {
             Column(children: [
               buildImage(),
               const SizedBox(height: 64),
-              buildText()
+              buildText(),
             ])
           else
             Row(children: [
-              Expanded(child: buildText()),
+              Expanded(child: buildImage()),
               const SizedBox(width: 64),
-              Expanded(child: buildImage())
+              Expanded(child: buildText()),
             ]),
           const SizedBox(
             height: 100,
