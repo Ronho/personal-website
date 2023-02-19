@@ -1,81 +1,67 @@
 [
   {
-    "id": "asd",
-    "company": "LinkedIn",
-    "link": "linkedin.com",
-    "textColor": [255, 255, 255, 1],
-    "backgroundColor": [0, 126, 187, 1],
-    "logo": "assets/images/logos/linkedin.svg",
+    "id": "accenture",
+    "company": "Accenture",
+    "link": "accenture.com",
+    "textColor": [0, 0, 0, 1],
+    "backgroundColor": [151, 0, 204, 1],
+    "logo": "assets/images/logos/accenture.svg",
     "jobs": [
       {
-        "id": "a",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
+        "id": "data_eng",
+        "role": "Data Engineer",
+        "position": "Analyst",
+        "startDate": "2022-10-00T00:00:00",
         "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "Content of the work in markdown.",
-        "tagIds": ["flutter"]
+        "summary": "- Building and improving the Digital Twin to reflect reality\n- Working in a cross-functional team in a project-oriented, agile manner\n- Creation of internal assets",
+        "body": "## Mobility Industry\n\nMy work involved creating internal assets to communicate technical knowledge and skills. It also involved independent learning of complex domain-specific contexts. The role included creating, coordinating and implementing database schemas and software components using Python and Eclipse Sumo. In addition, designing and communicating proposed solutions to project-related challenges with the aim of achieving simulation realism, as well as onboarding and introducing new colleagues were part of my job.",
+        "tagIds": [
+          "python",
+          "reinforcement_learning",
+          "digital_twin"
+        ]
       },
       {
-        "id": "b",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
-        "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "Content of the work in markdown.",
-        "tagIds": ["flutter"]
+        "id": "software_dev",
+        "role": "Software Developer",
+        "position": "Dual Student",
+        "startDate": "2019-10-01T00:00:00",
+        "endDate": "2022-09-30T23:59:59",
+        "summary": "- Experience across industries and domains\n- Focus on software development, data and machine learning\n- Data & Artificial Intelligence strategy design",
+        "body": "My work as a software developer with an emphasis on data comprised several stations in different industries. Below is a selection of these.\n## Event Management Industry\nThe goal of this project was to develop a serverless web application for event management. The main focus of my work was to build the infrastructure for user authentication using AWS Cognito and the implementation in the frontend using AWS Amplify. I was also responsible for creating a CI/CD pipeline to automatically deploy new versions of the application using GitLab CI/CD and AWS S3 + Cloudfront.\n\n## Consumer Goods\nWorked in a variety of roles including process automation and database design using Microsoft Sharepoint and Access. I also anonymised, analysed and visualised personal data using machine learning models with Python, scikit-learn and TensorFlow, including reporting to management. I was also responsible for providing personal data in a dashboard using Angular.\n\n## Mobility Industry\nMy focus was on parallel generation of simulations and evaluation of metrics using Python and Ray. Additionally, I have been involved in the implementation of proof-of-concept reinforcement learning models using Python and PyTorch. I was also engaged in writing proposals to solve customer challenges and conceptualising a strategy for the development and deployment of machine learning. This included defining the stages from concept to finished product and the staffing strategy.\n\n",
+        "tagIds": [
+          "python",
+          "deep_learning",
+          "aws",
+          "reinforcement_learning",
+          "strategy"
+        ]
       }
     ]
   },
   {
-    "id": "asd",
-    "company": "LinkedIn",
-    "link": "linkedin.com",
-    "textColor": [255, 255, 255, 1],
-    "backgroundColor": [0, 126, 187, 1],
-    "logo": "assets/images/logos/linkedin.svg",
+    "id": "dhbw_mannheim",
+    "company": "Duale Hochschule Baden-Württemberg (DHBW) Mannheim",
+    "link": "https://www.mannheim.dhbw.de/startseite",
+    "textColor": [93, 105, 113, 1],
+    "backgroundColor": [255, 255, 255, 1],
+    "logo": "assets/images/logos/dhbw.svg",
     "jobs": [
       {
-        "id": "a",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
-        "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "**Lorem ipsum dolor sit amet**, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   \n\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   \n\nAt vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   \n\nConsetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   \n\nLorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   \n\nDuis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   \n\nUt wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   \n\nNam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper **suscipit** lobortis nisl ut aliquip ex ea commodo",
-        "tagIds": ["flutter"]
-      },
-      {
-        "id": "b",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
-        "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "# Markdown syntax guide\n\n## Headers\n\n# This is a Heading h1\n## This is a Heading h2 \n###### This is a Heading h6\n\n## Emphasis\n\n*This text will be italic*  \n_This will also be italic_\n\n**This text will be bold**  \n__This will also be bold__\n\n_You **can** combine them_\n\n## Lists\n\n### Unordered\n\n* Item 1\n* Item 2\n* Item 2a\n* Item 2b\n\n### Ordered\n\n1. Item 1\n1. Item 2\n1. Item 3\n  1. Item 3a\n  1. Item 3b\n\n## Images\n\n![This is a alt text.](resource:assets/images/thumbnails/thumbnail.jpg \"This is a sample image.\")\n\n## Links\n\nYou may be using [Markdown Live Preview](https://markdownlivepreview.com/).\n\n## Blockquotes\n\n> Markdown is a lightweight markup language with plain-text-formatting syntax, created in 2004 by John Gruber with Aaron Swartz.\n>\n>> Markdown is often used to format readme files, for writing messages in online discussion forums, and to create rich text using a plain text editor.\n\n## Tables\n\n| Left columns  | Right columns |\n| ------------- |:-------------:|\n| left foo      | right foo     |\n| left bar      | right bar     |\n| left baz      | right baz     |\n\n## Blocks of code\n\n```\nlet message = 'Hello world';\nalert(message);\n```\n\n## Inline code\n\nThis web site is using `markedjs/marked`.",
-        "tagIds": ["flutter"]
-      },
-      {
-        "id": "a",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
-        "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "Content of the work in markdown.",
-        "tagIds": ["flutter"]
-      },
-      {
-        "id": "b",
-        "role": "Working Student",
-        "position": "Consultant",
-        "startDate": "2022-08-20T19:02:21.891623",
-        "endDate": "present",
-        "summary": "Short description of what has been done during the work.",
-        "body": "Content of the work in markdown.",
-        "tagIds": ["flutter"]
+        "id": "business_informatics",
+        "role": "Business Informatics • Data Science",
+        "position": "B.Sc.",
+        "startDate": "2019-10-01T00:00:00",
+        "endDate": "2022-09-30T23:59:59",
+        "summary": "- Lectures and projects on Data Science and Machine Learning topics\n- Bachelor thesis on Explainable Artificial Intelligence\n- Graduation with ECTS classification A",
+        "body": "During my studies at the DHBW Mannheim, I dealt intensively with the topics of business informatics and especially data science. My personal focus was on machine learning.\n\nIndustry-relevant content of the programme includes\n- working independently and in teams to work on, conceptualise and define the scope of deliverables,\n- numerous projects focused on machine learning and data science,\n- lectures on topics related to data science, data analytics and big data, as well as machine learning and artificial intelligence.\n\nMy bachelor thesis \"Post Pruning Algorithms for Linear Model U-Trees in the Context of Explainable Reinforcement Learning\" is dedicated to improving the interpretability of reinforcement learning models using decision trees. Other scientific papers I have written during my studies have covered topics such as quantum computing, dimensionality reduction methods and federated learning.\n\nI have successfully completed my studies with a total of 210 ECTS credits and an ECTS grade of A (very good).\n",
+        "tagIds": [
+          "machine_learning",
+          "artificial_intelligence",
+          "reinforcement_learning",
+          "computer_vision",
+          "nlp"
+        ]
       }
     ]
   }

@@ -9,8 +9,7 @@
     "date": "2022-08-20T19:02:21.891623",
     "lastUpdated": "2022-08-20T19:02:21.891623",
     "title": "Title of the project.",
-    "summary": "Short description of what has been done within the project.",
-    "body": "Content of the project in markdown including what the problems and goals were, how the problems were approached, as well as what and why specific technologies were used."
+    "summary": "Short description of what has been done within the project."
   },
   {
     "id": "id02",
@@ -22,7 +21,6 @@
     "date": "2022-08-20T19:02:21.891623",
     "lastUpdated": "2022-08-20T19:02:21.891623",
     "title": "Prinvars",
-    "summary": "Short description of what has been done within the project.",
-    "body": "asd"
+    "summary": "Short description of what has been done within the project."
   }
 ]
