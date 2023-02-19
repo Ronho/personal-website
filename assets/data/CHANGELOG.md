@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2023-02-19
+
+### Changed
+- Fix: assets involve images of the top level as well.
+
 ## [1.0.0] - 2023-02-19
 
 ### Changed
@@ -51,7 +56,8 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.0.1...HEAD
+[1.0.0]: https://github.com/Ronho/personal-website/tree/v1.0.1
 [1.0.0]: https://github.com/Ronho/personal-website/tree/v1.0.0
 [0.1.0]: https://github.com/Ronho/personal-website/tree/v0.1.0
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1
