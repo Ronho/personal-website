@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2023-02-19
+
+### Changed
+- Landing contains content.
+- Actual experiences added.
+- Preparations for serving the application using a custom domain.
+
 ## [0.1.0] - 2023-02-05
 
 ### Pull Requests
@@ -44,6 +51,7 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/Ronho/personal-website/tree/v1.0.0
 [0.1.0]: https://github.com/Ronho/personal-website/tree/v0.1.0
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1
