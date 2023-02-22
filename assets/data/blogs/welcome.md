@@ -3,7 +3,7 @@ Welcome to my website - a place to share ideas and knowledge with the outside wo
 The site contains projects I've been involved in, blog posts about my interests and topics.
 The latter will focus on machine learning and new technologies.
 I also want to offer the possibility to simplify independent learning.
-Just use the [learning page](/learning)!
+Just use the [learning page](#/learning)!
 
 Please note that the images I use on the website are in some cases created by an AI.
 The texts could also be written by an artificial intelligence.
