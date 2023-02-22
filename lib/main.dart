@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'package:personal_website/i18n/messages.dart';
 import 'package:personal_website/screens/blog.dart';
@@ -9,8 +10,9 @@ import 'package:personal_website/screens/changelog.dart';
 import 'package:personal_website/screens/experience.dart';
 import 'package:personal_website/screens/imprint.dart';
 import 'package:personal_website/screens/landing.dart';
-import 'package:personal_website/screens/project.dart';
 import 'package:personal_website/screens/not_found.dart';
+import 'package:personal_website/screens/project.dart';
+import 'package:personal_website/screens/spaced_repetition.dart';
 import 'package:personal_website/theme/themes.dart';
 import 'package:personal_website/controller/blogs.dart';
 import 'package:personal_website/controller/changelog.dart';
@@ -21,6 +23,7 @@ import 'package:personal_website/controller/search.dart';
 import 'package:personal_website/controller/theme.dart';
 
 void main() async {
+  setPathUrlStrategy();
   await GetStorage.init();
   runApp(const MyApp());
 }
@@ -86,6 +89,11 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: '/changelog',
           page: () => ChangelogScreen(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: '/learning',
+          page: () => SpacedRepetitionScreen(),
           transition: Transition.noTransition,
         ),
       ],

@@ -61,6 +61,9 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                     }
                   },
                 ),
+                const SizedBox(
+                  height: 16,
+                ),
               ],
             ),
           );

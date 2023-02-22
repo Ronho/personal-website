@@ -9,6 +9,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2023-02-22
+
+### Added
+- Learning system
+- Contact details
+- Replaced projects with first actual entry.
+- Replaced blogs with first actual entry.
+
+### Changed
+- Fix: assets involve images of the top level as well.
+- Fix: emojis are not displayed accordingly.
+- Removed hash from url.
+- Some cosmetic changes.
+- Removed placeholder.
+
 ## [1.0.1] - 2023-02-19
 
 ### Changed
@@ -57,8 +72,9 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v1.0.1...HEAD
-[1.0.0]: https://github.com/Ronho/personal-website/tree/v1.0.1
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/Ronho/personal-website/tree/v1.1.0
+[1.0.1]: https://github.com/Ronho/personal-website/tree/v1.0.1
 [1.0.0]: https://github.com/Ronho/personal-website/tree/v1.0.0
 [0.1.0]: https://github.com/Ronho/personal-website/tree/v0.1.0
 [0.0.1]: https://github.com/Ronho/personal-website/tree/v0.0.1
