@@ -39,7 +39,13 @@ class Messages extends Translations {
           'next': 'Next',
           'question': 'Question',
           'answer': 'Answer',
-          "learn": "Learning"
+          "learn": "Learning",
+          "issues_email_text": "Found an issue?",
+          "issues_email": "issues@ronho.dev",
+          "issue_email_subject": "Issue",
+          "contact_email_text": "Contact",
+          "contact_email": "contact@ronho.dev",
+          "contact_email_subject": "Contact request",
         },
         'de_DE': {
           'welcome': 'Willkommen, ich bin Ron!',
@@ -71,7 +77,13 @@ class Messages extends Translations {
           'next': 'Nächste',
           'question': 'Frage',
           'answer': 'Lösung',
-          "learn": "Lernen"
+          "learn": "Lernen",
+          "issues_email_text": "Fehler gefunden?",
+          "issues_email": "issues@ronho.dev",
+          "issue_email_subject": "Fehler",
+          "contact_email_text": "Kontakt",
+          "contact_email": "kontakt@ronho.dev",
+          "contact_email_subject": "Kontaktanfrage",
         }
       };
 }

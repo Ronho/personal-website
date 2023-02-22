@@ -67,13 +67,30 @@ class Footer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // TODO: TextButton(
-              //     onPressed: () {
-              //       Get.toNamed('/imprint');
-              //     },
-              //     child: Text('${'imprint'.tr} & ${'data_protection'.tr}'),
-              // ),
-              // const Text(' • '),
+              TextButton(
+                onPressed: () {
+                  final Uri emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: 'contact_email'.tr,
+                    query: 'subject=${'contact_email_subject'.tr}',
+                  );
+                  launchUrl(emailLaunchUri);
+                },
+                child: Text('contact_email_text'.tr),
+              ),
+              const Text(' • '),
+              TextButton(
+                onPressed: () {
+                  final Uri emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: 'issues_email'.tr,
+                    query: 'subject=${'issue_email_subject'.tr}',
+                  );
+                  launchUrl(emailLaunchUri);
+                },
+                child: Text('issues_email_text'.tr),
+              ),
+              const Text(' • '),
               TextButton(
                 onPressed: () {
                   Get.toNamed('/changelog');
