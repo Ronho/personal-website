@@ -1,17 +1,12 @@
 [
   {
-    "id": "1",
-    "question": "Markdown Answer1",
-    "answer": "Lorem ipsum dolor sit amet1,"
+    "id": "ml_subareas",
+    "question": "What are the subareas of machine learning?",
+    "answer": "Machine learning consists of supervised, semi-supervised, unsupervised and reinforcement learning. However, sometimes semi-supervised learning is not listed as a separate approach."
   },
   {
-    "id": "2",
-    "question": "Markdown Answer2",
-    "answer": "Lorem ipsum dolor sit amet2,"
-  },
-  {
-    "id": "3",
-    "question": "Markdown Answer3",
-    "answer": "Lorem ipsum dolor sit amet3,"
+    "id": "supervised",
+    "question": "What is supervised learning?",
+    "answer": "Supervised learning is a machine learning paradigm that is concerned with reproducing a target value as accurately as possible on the basis of a prediction. The training data consists of n independent variables and one or more dependent variables to be predicted. Typically, in the case of a linear function, an intercept is represented. Such a function can be learned and fitted with arbitrary accuracy through supervised learning."
   }
 ]
