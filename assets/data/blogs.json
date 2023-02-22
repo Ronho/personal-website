@@ -1,24 +1,13 @@
 [
   {
-    "id": "id01",
+    "id": "welcome",
     "isPublished": true,
-    "thumbnail": "assets/images/thumbnails/thumbnail.jpg",
-    "authors": ["Arsene Lupin", "Peter Diasz"],
-    "date": "2022-08-20T19:02:21.891623",
-    "lastUpdated": "2022-08-20T19:02:21.891623",
-    "title": "Title of the blog post. Title of the blog post. Title of the blog post. Title of the blog post. Title of the blog post.",
-    "summary": "My summary as plain text.",
-    "bodyReference": "id01"
-  },
-  {
-    "id": "id02",
-    "isPublished": true,
-    "thumbnail": "assets/images/thumbnails/thumbnail.jpg",
-    "authors": ["Arsene Lupin", "Erich Ernst"],
-    "date": "2022-08-20T19:02:21.891623",
-    "lastUpdated": "2022-08-20T19:02:21.891623",
-    "title": "Title of the blog post.",
-    "summary": "My summary as plain text.",
-    "bodyReference": "id02"
+    "thumbnail": "assets/images/thumbnails/welcome.png",
+    "authors": ["Ron Holzapfel"],
+    "date": "2023-02-22T00:00:00",
+    "lastUpdated": "2023-02-22T00:00:00",
+    "title": "And... we are live!",
+    "summary": "The website is open to the public. With a few words about my plans and the construction of the site I would like to start this blog.",
+    "bodyReference": "welcome"
   }
 ]

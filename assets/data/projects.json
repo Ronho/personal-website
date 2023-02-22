@@ -1,26 +1,14 @@
 [
   {
-    "id": "id01",
-    "tagIds": ["flutter"],
-    "authors": ["Arsene Lupin"],
-    "link": "https://www.github.com/",
+    "id": "Prinvars",
+    "tagIds": ["r"],
+    "authors": ["Ron Holzapfel", "Jan Owe Bauer"],
+    "link": "https://github.com/Ronho/prinvars",
     "isPublished": true,
-    "thumbnail": "assets/images/thumbnails/thumbnail.jpg",
-    "date": "2022-08-20T19:02:21.891623",
-    "lastUpdated": "2022-08-20T19:02:21.891623",
-    "title": "Title of the project.",
-    "summary": "Short description of what has been done within the project."
-  },
-  {
-    "id": "id02",
-    "tagIds": ["flutter"],
-    "authors": ["Arsene Lupin"],
-    "link": "https://www.github.com/",
-    "isPublished": true,
-    "thumbnail": "assets/images/thumbnails/thumbnail.jpg",
-    "date": "2022-08-20T19:02:21.891623",
-    "lastUpdated": "2022-08-20T19:02:21.891623",
-    "title": "Prinvars",
-    "summary": "Short description of what has been done within the project."
+    "thumbnail": "assets/images/thumbnails/prinvars.png",
+    "date": "2023-02-22T00:00:00",
+    "lastUpdated": "2023-02-22T00:00:00",
+    "title": "Principal Variables (Prinvars)",
+    "summary": "Prinvars is an R package that provides methods for dimensionality reduction. The package focuses on principal load analysis, which is used to reduce dimensionality by dropping variables."
   }
 ]
