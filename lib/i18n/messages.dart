@@ -33,6 +33,13 @@ class Messages extends Translations {
           'changelog': 'Changelog',
           'search': 'Search',
           'search_hinttext': 'Full-Text Search...',
+          'back': 'Back',
+          'hide': 'Hide',
+          'show': 'Show',
+          'next': 'Next',
+          'question': 'Question',
+          'answer': 'Answer',
+          "learn": "Learning"
         },
         'de_DE': {
           'welcome': 'Willkommen, ich bin Ron!',
@@ -58,6 +65,13 @@ class Messages extends Translations {
           'changelog': 'Changelog',
           'search': 'Suche',
           'search_hinttext': 'Volltextsuche...',
+          'back': 'Zurück',
+          'hide': 'Lösung verstecken',
+          'show': 'Lösung zeigen',
+          'next': 'Nächste',
+          'question': 'Frage',
+          'answer': 'Lösung',
+          "learn": "Lernen"
         }
       };
 }

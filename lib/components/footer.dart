@@ -56,6 +56,12 @@ class Footer extends StatelessWidget {
                     Get.toNamed('/blog');
                   },
                   child: Text('blog'.tr)),
+              const Text(' • '),
+              TextButton(
+                  onPressed: () {
+                    Get.toNamed('/learning');
+                  },
+                  child: Text('learn'.tr)),
             ],
           ),
           Row(
