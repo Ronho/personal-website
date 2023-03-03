@@ -31,6 +31,11 @@ class SideDrawer extends StatelessWidget {
                 Get.toNamed('/blog');
               },
               title: Text('blog'.tr)),
+          ListTile(
+              onTap: () {
+                Get.toNamed('/learning');
+              },
+              title: Text('learn'.tr)),
           LocaleButton()
         ],
       ),

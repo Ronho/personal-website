@@ -30,42 +30,50 @@ class Footer extends StatelessWidget {
               iconSize: 50,
               icon: SvgPicture.asset('assets/images/logos/linkedin.svg')),
           const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            spacing: 8.0,
+            alignment: WrapAlignment.center,
             children: [
               TextButton(
                   onPressed: () {
                     Get.toNamed('/');
                   },
                   child: Text('home'.tr)),
-              const Text(' • '),
               TextButton(
                   onPressed: () {
                     Get.toNamed('/experience');
                   },
                   child: Text('experience'.tr)),
-              const Text(' • '),
               TextButton(
                   onPressed: () {
                     Get.toNamed('/projects');
                   },
                   child: Text('projects'.tr)),
-              const Text(' • '),
               TextButton(
                   onPressed: () {
                     Get.toNamed('/blog');
                   },
                   child: Text('blog'.tr)),
-              const Text(' • '),
               TextButton(
                   onPressed: () {
                     Get.toNamed('/learning');
                   },
                   child: Text('learn'.tr)),
+              TextButton(
+                  onPressed: () {
+                    Get.toNamed('/changelog');
+                  },
+                  child: Text('changelog'.tr)),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          SelectableText(
+            '© ${DateFormat('y').format(DateTime.now())} ' +
+                '${'name'.tr} • ${v.VERSION}',
+            style: const TextStyle(color: Colors.grey),
+          ),
+          Wrap(
+            spacing: 8.0,
+            alignment: WrapAlignment.center,
             children: [
               TextButton(
                 onPressed: () {
@@ -78,7 +86,6 @@ class Footer extends StatelessWidget {
                 },
                 child: Text('contact_email_text'.tr),
               ),
-              const Text(' • '),
               TextButton(
                 onPressed: () {
                   final Uri emailLaunchUri = Uri(
@@ -90,19 +97,7 @@ class Footer extends StatelessWidget {
                 },
                 child: Text('issues_email_text'.tr),
               ),
-              const Text(' • '),
-              TextButton(
-                onPressed: () {
-                  Get.toNamed('/changelog');
-                },
-                child: Text('changelog'.tr),
-              ),
             ],
-          ),
-          SelectableText(
-            '© ${DateFormat('y').format(DateTime.now())} ' +
-                '${'name'.tr} • ${v.VERSION}',
-            style: const TextStyle(color: Colors.grey),
           ),
           const SizedBox(height: 25),
         ],
