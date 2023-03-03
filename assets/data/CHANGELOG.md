@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2023-03-03
+
+### Added
+- Added learning page to side drawer.
+
+### Changed
+- Fix: Wrap link buttons at bottom of page to avoid overflows.
+- Fix: Wrapping buttons in learning page.
+
 ## [1.1.1] - 2023-02-22
 
 ### Changed

@@ -54,7 +54,8 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
       children: [
         Card(
           child: ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
+            alignment: MainAxisAlignment.center,
+            overflowButtonSpacing: 8.0,
             children: [
               OutlinedButton(
                 onPressed: c.hasPrev() ? c.updateToPrev : null,
