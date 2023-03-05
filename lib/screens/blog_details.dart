@@ -54,10 +54,14 @@ class BlogDetailsScreen extends GetResponsiveView<ResponsiveController> {
                   selectable: true,
                   extensionSet: md.ExtensionSet.gitHubWeb,
                   data: blog.body,
-                  onTapLink: (text, url, title){
+                  onTapLink: (text, url, title) {
                     if (url != null) {
-                      final uri = Uri.parse(url);
-                      launchUrl(uri);
+                      if (url.startsWith('/')) {
+                        Get.toNamed(url);
+                      } else {
+                        final uri = Uri.parse(url);
+                        launchUrl(uri);
+                      }
                     }
                   },
                 ),
