@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2023-03-05
+
+### Added
+- feat: url strategy with working in-app links for removing hash.
+
 ## [1.2.0] - 2023-03-03
 
 ### Added
