@@ -101,7 +101,7 @@ bars.
 `assets/data/blogs/` directory.
 
 [unreleased]: https://github.com/Ronho/personal-website/compare/v1.3.1...HEAD
-[1.3.0]: https://github.com/Ronho/personal-website/tree/v1.3.1
+[1.3.1]: https://github.com/Ronho/personal-website/tree/v1.3.1
 [1.3.0]: https://github.com/Ronho/personal-website/tree/v1.3.0
 [1.2.0]: https://github.com/Ronho/personal-website/tree/v1.2.0
 [1.1.1]: https://github.com/Ronho/personal-website/tree/v1.1.1
