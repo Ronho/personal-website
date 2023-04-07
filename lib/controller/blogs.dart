@@ -24,6 +24,7 @@ class BlogsController extends GetxController {
       entry.getText();
       blogs.add(entry);
     }
+    blogs.sort((a, b) => -a.date.compareTo(b.date));
     this.blogs.assignAll(blogs);
   }
 

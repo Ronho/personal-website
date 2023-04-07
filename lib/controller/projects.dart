@@ -22,6 +22,7 @@ class ProjectsController extends GetxController {
     for (dynamic project in json) {
       projects.add(Project.fromJson(project));
     }
+    projects.sort((a, b) => -a.date.compareTo(b.date));
     this.projects.assignAll(projects);
   }
 

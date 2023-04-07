@@ -3,6 +3,7 @@
     "id": "welcome",
     "isPublished": true,
     "thumbnail": "assets/images/thumbnails/welcome.png",
+    "thumbnail_creator": "midjourney",
     "authors": ["Ron Holzapfel"],
     "date": "2023-02-22T00:00:00",
     "lastUpdated": "2023-02-22T00:00:00",
