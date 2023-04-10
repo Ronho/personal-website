@@ -89,18 +89,5 @@
     "lastUpdated": "2023-04-04T00:00:00",
     "title": "Pac-Man - AI",
     "summary": "Pac-Man - AI implements the well-known game of Pac-Man. The game is solved using Deep Q-Networks, a reinforcement learning algorithm."
-  },
-  {
-    "id": "pac_man_ai",
-    "tagIds": ["python", "reinforcement_learning"],
-    "authors": ["Ron Holzapfel", "Bastian Berle"],
-    "link": "https://github.com/C2G-BR/Pac-Man-AI",
-    "isPublished": true,
-    "thumbnail": "assets/images/thumbnails/work_in_progress.png",
-    "thumbnail_creators": ["midjourney", "Ron Holzapfel"],
-    "date": "2023-04-04T00:00:00",
-    "lastUpdated": "2023-04-04T00:00:00",
-    "title": "(WIP) Test",
-    "summary": "Pac-Man - AI implements the well-known game of Pac-Man. The game is solved using Deep Q-Networks, a reinforcement learning algorithm."
   }
 ]
