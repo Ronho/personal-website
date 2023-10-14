@@ -21,7 +21,7 @@ import 'package:personal_website/controller/changelog.dart';
 import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/controller/locale.dart';
 import 'package:personal_website/controller/projects.dart';
-import 'package:personal_website/controller/search.dart';
+import 'package:personal_website/controller/search.dart' as search;
 import 'package:personal_website/controller/theme.dart';
 
 void main() async {
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.lazyPut<ThemeController>(() => ThemeController());
     Get.lazyPut<LocaleController>(() => LocaleController());
-    Get.lazyPut<SearchController>(() => SearchController());
+    Get.lazyPut<search.SearchController>(() => search.SearchController());
     Get.lazyPut<ChangelogController>(() => ChangelogController());
     Get.put<BlogsController>(BlogsController());
     Get.put<ProjectsController>(ProjectsController());
