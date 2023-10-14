@@ -1,48 +1,66 @@
-import 'dart:convert';
-import 'package:flutter/services.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 import 'package:personal_website/models/question.dart';
 
 class QuestionsController extends GetxController {
-  RxInt _index = 0.obs;
-  RxBool _show = false.obs;
-  RxBool _hasLoaded = false.obs;
-  final RxList<Question> _questions = <Question>[].obs;
+  final RxBool _hasLoaded = false.obs;
 
-  List<Question> get questions => _questions.value;
+  final RxBool _show = false.obs;
+  final RxInt _questionIdx = 0.obs;
+
+  final RxInt _selectedDeckIdx = 0.obs;
+  final RxList<QuestionDeck> _questionDecks = <QuestionDeck>[].obs;
+
+  QuestionDeck get _currentDeck => _questionDecks[_selectedDeckIdx.value];
+
+  List<QuestionDeck> get questionDecks => _questionDecks;
   bool get show => _show.value;
   bool get hasLoaded => _hasLoaded.value;
+  int get selectedDeckIdx => _selectedDeckIdx.value;
 
   QuestionsController() {
-    getQuestions();
+    fetchDecks();
   }
 
-  Future<void> getQuestions() async {
-    final String jsonText =
-        await rootBundle.loadString('assets/data/questions.json');
-    final dynamic json = jsonDecode(jsonText);
-    List<Question> questions = [];
-    for (dynamic question in json) {
-      questions.add(Question.fromJson(question));
-    }
-    questions.shuffle();
+  Future<void> fetchDecks() async {
+    final CollectionReference<QuestionDeck> deckRef = FirebaseFirestore.instance
+        .collection('learning')
+        .withConverter<QuestionDeck>(
+            fromFirestore: (snapshot, _) =>
+                QuestionDeck.fromJson(snapshot.data()!),
+            toFirestore: (model, _) => {});
+    QuerySnapshot<QuestionDeck> snapshot = await deckRef.get();
+    List<QuestionDeck> decks = snapshot.docs.map((e) => e.data()).toList();
+
     _hasLoaded.value = true;
-    _questions.assignAll(questions);
+    decks[_selectedDeckIdx.value].questions.shuffle();
+    _questionDecks.assignAll(decks);
     update();
   }
 
+  void selectDeck(int idx) {
+    if (idx < questionDecks.length && idx >= 0) {
+      _questionDecks[idx].questions.shuffle();
+      _selectedDeckIdx.value = idx;
+      _questionIdx.value = 0;
+      _show.value = false;
+      update();
+    }
+  }
+
   bool hasNext() {
-    return (_index.value + 1 < _questions.length);
+    return (_questionIdx.value + 1 < _currentDeck.questions.length);
   }
 
   bool hasPrev() {
-    return (_index.value - 1 >= 0 && _index.value - 1 < _questions.length);
+    return (_questionIdx.value - 1 >= 0 &&
+        _questionIdx.value - 1 < _currentDeck.questions.length);
   }
 
   void updateToNext() {
     if (hasNext()) {
-      _index.value += 1;
+      _questionIdx.value += 1;
       _show.value = false;
       update();
     }
@@ -50,7 +68,7 @@ class QuestionsController extends GetxController {
 
   void updateToPrev() {
     if (hasPrev()) {
-      _index.value -= 1;
+      _questionIdx.value -= 1;
       _show.value = false;
       update();
     }
@@ -67,6 +85,6 @@ class QuestionsController extends GetxController {
   }
 
   Question getQuestion() {
-    return questions[_index.value];
+    return questionDecks[_selectedDeckIdx.value].questions[_questionIdx.value];
   }
 }
