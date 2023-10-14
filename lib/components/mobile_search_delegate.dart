@@ -15,7 +15,7 @@ class MobileSearchDelegate extends SearchDelegate {
   }) : super(searchFieldLabel: searchFieldLabel);
 
   static show(BuildContext context) {
-    final SearchController searchController = SearchController.to;
+    final SearchBarController searchController = SearchBarController.to;
     final MobileSearchDelegate delegate = MobileSearchDelegate(
       onUpdate: searchController.search,
       onClose: searchController.updateLastSearch,
@@ -55,7 +55,6 @@ class MobileSearchDelegate extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     final List<SearchBarItem> suggestions;
     if (query.isNotEmpty) {
-      // suggestions = searchController.search(query);
       suggestions = onUpdate(query);
     } else {
       suggestions = [];
@@ -80,7 +79,6 @@ class MobileSearchDelegate extends SearchDelegate {
   @override
   void close(BuildContext context, result) {
     onClose(query);
-    // searchController.updateLastSearch(query);
     super.close(context, result);
   }
 }

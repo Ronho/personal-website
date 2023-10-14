@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.2] - 2023-10-14
+
+### Changed
+- fix: rename SearchController to avoid conflicts with Flutter's SearchController 
+
 ## [1.4.1] - 2023-10-14
 
 ### Changed
@@ -116,7 +121,8 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v1.4.1...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.4.2...HEAD
+[1.4.2]: https://github.com/Ronho/personal-website/tree/v1.4.2
 [1.4.1]: https://github.com/Ronho/personal-website/tree/v1.4.1
 [1.4.0]: https://github.com/Ronho/personal-website/tree/v1.4.0
 [1.3.2]: https://github.com/Ronho/personal-website/tree/v1.3.2

@@ -5,8 +5,8 @@ import 'package:personal_website/controller/experience.dart';
 import 'package:personal_website/controller/projects.dart';
 import 'package:personal_website/models/search_bar_item.dart';
 
-class SearchController extends GetxController {
-  static SearchController get to => Get.find();
+class SearchBarController extends GetxController {
+  static SearchBarController get to => Get.find();
 
   Rx<String> _lastSearch = ''.obs;
   String get lastSearch => _lastSearch.value;
