@@ -53,21 +53,41 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
     return Column(
       children: [
         Card(
-          child: ButtonBar(
-            alignment: MainAxisAlignment.center,
-            overflowButtonSpacing: 8.0,
+          child: Column(
             children: [
-              OutlinedButton(
-                onPressed: c.hasPrev() ? c.updateToPrev : null,
-                child: Text('back'.tr),
+              DropdownButton<int>(
+                value: c.selectedDeckIdx,
+                icon: const Icon(Icons.arrow_downward),
+                elevation: 16,
+                onChanged: (int? value) {
+                  c.selectDeck(value!);
+                },
+                items: c.questionDecks.asMap().entries.map<DropdownMenuItem<int>>((e) {
+                  int idx = e.key;
+                  QuestionDeck deck = e.value;
+                  return DropdownMenuItem<int>(
+                    value: idx,
+                    child: Text(deck.name),
+                  );
+                }).toList(),
               ),
-              OutlinedButton(
-                  onPressed: c.show ? c.showFalse : c.showTrue,
-                  child: c.show ? Text('hide'.tr) : Text('show'.tr)),
-              OutlinedButton(
-                onPressed: c.hasNext() ? c.updateToNext : null,
-                child: Text('next'.tr),
-              )
+              ButtonBar(
+                alignment: MainAxisAlignment.center,
+                overflowButtonSpacing: 8.0,
+                children: [
+                  OutlinedButton(
+                    onPressed: c.hasPrev() ? c.updateToPrev : null,
+                    child: Text('back'.tr),
+                  ),
+                  OutlinedButton(
+                      onPressed: c.show ? c.showFalse : c.showTrue,
+                      child: c.show ? Text('hide'.tr) : Text('show'.tr)),
+                  OutlinedButton(
+                    onPressed: c.hasNext() ? c.updateToNext : null,
+                    child: Text('next'.tr),
+                  )
+                ],
+              ),
             ],
           ),
         ),
