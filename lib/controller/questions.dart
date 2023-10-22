@@ -12,7 +12,7 @@ enum Difficulty { easy, medium, hard }
 final Map<Difficulty, int> timeDifference = {
   Difficulty.easy: 10080, // 7 days
   Difficulty.medium: 4320, // 3 days
-  Difficulty.hard: 1,//1440, // 1 day
+  Difficulty.hard: 1440, // 1 day
 };
 
 class QuestionDBEntry {
