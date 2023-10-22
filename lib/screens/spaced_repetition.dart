@@ -49,44 +49,75 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
     );
   }
 
+  Widget getDeckSelection() {
+    return DropdownButton<int>(
+      value: c.selectedDeckIdx,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      onChanged: (int? value) {
+        c.selectDeck(value!);
+      },
+      items: c.questionDecks.asMap().entries.map<DropdownMenuItem<int>>((e) {
+        int idx = e.key;
+        QuestionDeck deck = e.value;
+        return DropdownMenuItem<int>(
+          value: idx,
+          child: Text(deck.name),
+        );
+      }).toList(),
+    );
+  }
+
+  Widget getNoQuestionLeft() {
+    return Column(
+      children: [
+        Card(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              if (c.questionDecks.isNotEmpty)
+                Center(child: getDeckSelection())
+              else
+                Text('sorry'.tr),
+            ],
+          ),
+        ),
+        getMarkdownCard('no_more_questions'.tr, 'done'.tr)
+      ],
+    );
+  }
+
   Widget getContent(Question q) {
     return Column(
       children: [
         Card(
           child: Column(
             children: [
-              DropdownButton<int>(
-                value: c.selectedDeckIdx,
-                icon: const Icon(Icons.arrow_downward),
-                elevation: 16,
-                onChanged: (int? value) {
-                  c.selectDeck(value!);
-                },
-                items: c.questionDecks.asMap().entries.map<DropdownMenuItem<int>>((e) {
-                  int idx = e.key;
-                  QuestionDeck deck = e.value;
-                  return DropdownMenuItem<int>(
-                    value: idx,
-                    child: Text(deck.name),
-                  );
-                }).toList(),
-              ),
+              if (c.questionDecks.isNotEmpty) getDeckSelection(),
               ButtonBar(
                 alignment: MainAxisAlignment.center,
                 overflowButtonSpacing: 8.0,
-                children: [
-                  OutlinedButton(
-                    onPressed: c.hasPrev() ? c.updateToPrev : null,
-                    child: Text('back'.tr),
-                  ),
-                  OutlinedButton(
-                      onPressed: c.show ? c.showFalse : c.showTrue,
-                      child: c.show ? Text('hide'.tr) : Text('show'.tr)),
-                  OutlinedButton(
-                    onPressed: c.hasNext() ? c.updateToNext : null,
-                    child: Text('next'.tr),
-                  )
-                ],
+                children: c.show
+                    ? [
+                        OutlinedButton(
+                          onPressed: () => c.updateToNext(Difficulty.easy),
+                          child: Text('easy'.tr),
+                        ),
+                        OutlinedButton(
+                          onPressed: () => c.updateToNext(Difficulty.medium),
+                          child: Text('medium'.tr),
+                        ),
+                        OutlinedButton(
+                          onPressed: () => c.updateToNext(Difficulty.hard),
+                          child: Text('hard'.tr),
+                        ),
+                      ]
+                    : [
+                        OutlinedButton(
+                          onPressed: c.showTrue,
+                          child: c.show ? Text('hide'.tr) : Text('show'.tr),
+                        ),
+                      ],
               ),
             ],
           ),
@@ -112,7 +143,12 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
       child: SliverToBoxAdapter(
         child: Obx(() {
           if (c.hasLoaded) {
-            return getContent(c.getQuestion());
+            Question? question = c.getQuestion();
+            if (question == null) {
+              return getNoQuestionLeft();
+            } else {
+              return getContent(question);
+            }
           } else {
             return getLoader();
           }
