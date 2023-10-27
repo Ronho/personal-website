@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2023-10-27
+
+### Changed
+- feat: add 404 page to enable routing
+- chore: remove defs, numbers containing e since they result in errors when used by flutter_svg
+- chore: update dependencies
+
 ## [1.5.1] - 2023-10-22
 
 ### Changed
@@ -131,7 +138,8 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v1.5.1...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/Ronho/personal-website/tree/v1.6.0
 [1.5.1]: https://github.com/Ronho/personal-website/tree/v1.5.1
 [1.5.0]: https://github.com/Ronho/personal-website/tree/v1.5.0
 [1.4.2]: https://github.com/Ronho/personal-website/tree/v1.4.2
