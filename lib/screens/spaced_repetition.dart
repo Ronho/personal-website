@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get.dart';
-import 'package:markdown/markdown.dart' as md;
+import 'package:latext/latext.dart';
 import 'package:personal_website/models/question.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:personal_website/controller/questions.dart';
 import 'package:personal_website/screens/screen_wrapper.dart';
@@ -15,14 +13,14 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
 
   final QuestionsController c = Get.put(QuestionsController());
 
-  Widget getMarkdownCard(String data, String text) {
+  Widget getTextCard(String data, String text) {
     return Card(
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
-              child: Text(
+              child: SelectableText(
                 text,
                 style: const TextStyle(
                   fontSize: 32,
@@ -31,18 +29,14 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
               ),
             ),
           ),
-          Markdown(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            selectable: true,
-            extensionSet: md.ExtensionSet.gitHubWeb,
-            data: data,
-            onTapLink: (text, url, title) {
-              if (url != null) {
-                final uri = Uri.parse(url);
-                launchUrl(uri);
-              }
-            },
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: LaTexT(
+                laTeXCode: Text(data),
+              ),
+            ),
           ),
         ],
       ),
@@ -82,7 +76,7 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
             ],
           ),
         ),
-        getMarkdownCard('no_more_questions'.tr, 'done'.tr)
+        getTextCard('no_more_questions'.tr, 'done'.tr)
       ],
     );
   }
@@ -122,8 +116,8 @@ class SpacedRepetitionScreen extends GetResponsiveView<ResponsiveController> {
             ],
           ),
         ),
-        getMarkdownCard(q.question, 'question'.tr),
-        if (c.show) getMarkdownCard(q.answer, 'answer'.tr)
+        getTextCard(q.question, 'question'.tr),
+        if (c.show) getTextCard(q.answer, 'answer'.tr)
       ],
     );
   }
