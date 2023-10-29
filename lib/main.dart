@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:url_strategy/url_strategy.dart';
 
 import 'package:personal_website/firebase_options.dart';
 import 'package:personal_website/i18n/messages.dart';
@@ -26,7 +25,6 @@ import 'package:personal_website/controller/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setPathUrlStrategy();
   await GetStorage.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
