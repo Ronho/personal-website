@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2023-10-29
+
+### Changed
+- fix: test to change the url strategy
+- feat: add editor to test look of text
+- feat: enable latex support in learning section
+
 ## [1.6.0] - 2023-10-27
 
 ### Changed
