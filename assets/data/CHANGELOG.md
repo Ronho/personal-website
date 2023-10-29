@@ -145,7 +145,8 @@ bars.
 - Blog posts now contain bodyReference instead of body. bodyReference references md file inside the
 `assets/data/blogs/` directory.
 
-[unreleased]: https://github.com/Ronho/personal-website/compare/v1.6.0...HEAD
+[unreleased]: https://github.com/Ronho/personal-website/compare/v1.7.0...HEAD
+[1.6.0]: https://github.com/Ronho/personal-website/tree/v1.7.0
 [1.6.0]: https://github.com/Ronho/personal-website/tree/v1.6.0
 [1.5.1]: https://github.com/Ronho/personal-website/tree/v1.5.1
 [1.5.0]: https://github.com/Ronho/personal-website/tree/v1.5.0
